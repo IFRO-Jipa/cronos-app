@@ -1,0 +1,29 @@
+.courseToggleButton {
+  flex: 1;
+  overflow: hidden;
+}
+
+.courseToggleButton .courseToggleButtonBox {
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.courseToggleButton .courseToggleButtonBox span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media screen and (min-width: 33.125rem) {
+  .courseToggleButton .courseToggleButtonBox {
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 27rem) {
+  .courseToggleButton {
+    font-size: 0.875rem;
+  }
+}

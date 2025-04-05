@@ -1,0 +1,14 @@
+.container {
+  height: 100%;
+  display: grid;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(13.75rem, 16.25rem) 1fr;
+}
+
+@media (min-width: 43.75rem) {
+  .container {
+    grid-template-columns: auto auto 1fr;
+    grid-template-rows: 1fr;
+  }
+}

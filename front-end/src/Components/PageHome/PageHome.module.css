@@ -1,0 +1,22 @@
+.actions {
+  height: 100%;
+
+  gap: 1rem;
+  display: grid;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 9.375rem);
+
+  align-content: center;
+
+  min-height: 32.5rem;
+}
+
+@media (min-width: 37.5rem) {
+  .actions {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 12.5rem;
+
+    min-height: 18.75rem;
+  }
+}
