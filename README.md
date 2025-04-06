@@ -4,6 +4,14 @@
 
 Visualize os horários de aula do campus de forma simples e interativa ✨
 
+## Sistemas
+
+### front-end
+
+Aplicação front-end Web feita com React e MUI.
+
+Diretório: [./front-end](./front-end/)
+
 ## Licença
 
 [MIT](./LICENSE)
