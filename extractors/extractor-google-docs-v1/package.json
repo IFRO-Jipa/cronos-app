@@ -2,10 +2,16 @@
   "name": "@cronos-app/extractor-google-docs-v1",
   "module": "src/index.ts",
   "type": "module",
+  "scripts": {
+    "poc": "bun run src/poc.ts"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   }
 }
