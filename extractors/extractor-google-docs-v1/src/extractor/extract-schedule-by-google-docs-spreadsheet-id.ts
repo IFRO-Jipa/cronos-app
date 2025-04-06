@@ -3,6 +3,12 @@ import {
   downloadGoogleDocsSpreadsheet,
   GoogleDocsSpreadsheetExportFormat,
 } from "../utils/google/docs/service";
+import { getVisibleWorkSheets } from "../utils/sheet-js/utils";
+import { extractWeekScheduleFromWorkSheet } from "./schedule/week/extract-week-schedule";
+
+const getWeeksWorkSheets = (workBook: XLSX.WorkBook) => {
+  return getVisibleWorkSheets(workBook);
+};
 
 export async function extractScheduleByGoogleDocsSpreadsheetId(docId: string) {
   const xlsxDownloadController = await downloadGoogleDocsSpreadsheet(
@@ -12,16 +18,16 @@ export async function extractScheduleByGoogleDocsSpreadsheetId(docId: string) {
 
   const arrayBuffer = xlsxDownloadController.getArrayBuffer();
 
-  const workBook = XLSX.read(arrayBuffer);
+  const workBook = XLSX.read(arrayBuffer, {
+    dense: true,
+    cellFormula: false,
+    cellHTML: false,
+    cellStyles: true,
+  });
 
-  const workSheet = workBook.Sheets.Atual;
-  if (workSheet) {
-    const json = XLSX.utils.sheet_to_json(workSheet, {
-      // header: 2,
-      raw: false,
-      rawNumbers: false,
-    });
+  const weeksWorkSheets = getWeeksWorkSheets(workBook);
 
-    console.log(JSON.stringify(json, null, 2));
+  for (const workSheet of weeksWorkSheets) {
+    await extractWeekScheduleFromWorkSheet(workSheet);
   }
 }
