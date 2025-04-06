@@ -1,0 +1,11 @@
+{
+  "name": "@cronos-app/extractor-google-docs-v1",
+  "module": "src/index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

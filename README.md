@@ -1,4 +1,4 @@
-# Cronos App
+# cronos-app
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/ifro-jipa/cronos-app/cd.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=Continous%20Integration&labelColor=%23010409)
 
