@@ -4,4 +4,8 @@ import { extractScheduleByGoogleDocsSpreadsheetId } from "./extractor/extract-sc
 // https://docs.google.com/spreadsheets/d/1pZ5Ok7YUO9OEatllR7s1UfOaYJF03ULtRcDcd-YHnIA/
 const DOC_ID = "1pZ5Ok7YUO9OEatllR7s1UfOaYJF03ULtRcDcd-YHnIA";
 
-await extractScheduleByGoogleDocsSpreadsheetId(DOC_ID);
+async function main() {
+  await extractScheduleByGoogleDocsSpreadsheetId(DOC_ID);
+}
+
+main();
