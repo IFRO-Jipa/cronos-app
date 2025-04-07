@@ -1,5 +1,9 @@
 import { type IDetectedRow, DetectedRowKind } from "./detect-rows/detect-row";
 import { parseRegionHeaderTitle } from "./patterns/region-header";
+import {
+  isValidSubjectTeacher,
+  parseSubjectTeacher,
+} from "./patterns/subject-teacher";
 
 type DetectedRegion = {
   header: {
@@ -111,16 +115,10 @@ export const detectScheduleRegions = function* (
 
           if (!lessonDescription) continue;
 
-          const separatorPattern = " - ";
-          const separatorIndex =
-            lessonDescription.lastIndexOf(separatorPattern);
+          if (!isValidSubjectTeacher(lessonDescription)) continue;
 
-          const [subjectSlug, teacherSlug] = [
-            lessonDescription.slice(0, separatorIndex).trim(),
-            lessonDescription
-              .slice(separatorIndex + separatorPattern.length)
-              .trim(),
-          ];
+          const { subjectSlug, teacherSlug } =
+            parseSubjectTeacher(lessonDescription);
 
           const lessonSchedule = {
             day: scheduleDay,

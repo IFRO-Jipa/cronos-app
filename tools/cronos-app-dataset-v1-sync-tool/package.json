@@ -1,0 +1,23 @@
+{
+  "name": "@cronos-app/dataset-v1.util",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "bun run src/main.ts",
+    "reset": "rm ../../dataset/v1/db/dataset-v1.sqlite && bun run db:migrate",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.8",
+    "drizzle-kit": "^0.30.6"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@cronos-app/extractor-google-docs-v1": "../../extractors/extractor-google-docs-v1/",
+    "@libsql/client": "^0.15.2",
+    "drizzle-orm": "^0.41.0"
+  }
+}

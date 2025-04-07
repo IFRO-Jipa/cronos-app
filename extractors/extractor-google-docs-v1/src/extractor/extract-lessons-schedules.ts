@@ -6,15 +6,53 @@ import {
 } from "../utils/google/docs/service";
 import { getXlsxTableRows } from "../utils/sheet-js/utils";
 
-type IExtractedLessonSchedule = {
+export type IExtractedLessonSchedule = {
   day: string;
   interval: [string, string];
 
-  courseSlug: string;
+  studentClassCourseSlug: string;
   studentClassSlug: string;
+
   subjectSlug: string;
   teacherSlug: string;
 };
+
+export const sortLessonSchedule = (
+  a: IExtractedLessonSchedule,
+  b: IExtractedLessonSchedule
+): number => {
+  const aDay = a.day;
+  const aPeriodStart = a.interval[0];
+
+  const bDay = b.day;
+  const bPeriodStart = b.interval[0];
+
+  const compareDay = aDay.localeCompare(bDay);
+
+  if (compareDay !== 0) return compareDay;
+
+  const comparePeriod = aPeriodStart.localeCompare(bPeriodStart);
+  if (comparePeriod !== 0) return comparePeriod;
+
+  const compareStudentClassCourseSlug = a.studentClassCourseSlug.localeCompare(
+    b.studentClassCourseSlug
+  );
+  if (compareStudentClassCourseSlug !== 0) return comparePeriod;
+
+  const compareStudentClassSlug = a.studentClassSlug.localeCompare(
+    b.studentClassSlug
+  );
+
+  if (compareStudentClassSlug !== 0) return comparePeriod;
+
+  return 0;
+};
+
+export function* sortLessonsSchedules(
+  lessonsSchedules: Iterable<IExtractedLessonSchedule>
+) {
+  yield* Array.from(lessonsSchedules).sort(sortLessonSchedule);
+}
 
 export function* extractLessonsSchedules(
   arrayBuffer: ArrayBuffer
@@ -25,7 +63,16 @@ export function* extractLessonsSchedules(
     const detectedRows = detectRows(tableRows);
 
     for (const lessonSchedule of detectLessonsSchedules(detectedRows)) {
-      yield lessonSchedule;
+      yield {
+        day: lessonSchedule.day,
+        interval: lessonSchedule.interval,
+
+        studentClassCourseSlug: lessonSchedule.courseSlug,
+        studentClassSlug: lessonSchedule.studentClassSlug,
+
+        subjectSlug: lessonSchedule.subjectSlug,
+        teacherSlug: lessonSchedule.teacherSlug,
+      };
     }
   }
 
