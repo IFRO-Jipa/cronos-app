@@ -2,11 +2,11 @@ import { useContextSelector } from "use-context-selector";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import format from "date-fns/format";
+import { format } from "date-fns/format";
 import { dateFNSLocale } from "../../../Features/date-fns-locale";
 import { useCallback, useEffect, useState } from "react";
 import { useNow } from "../../Utils/useNow";
-import isSameDay from "date-fns/isSameDay";
+import { isSameDay } from "date-fns/isSameDay";
 import { WeekItemViewDaysContext } from "./WeekItemViewDaysContext";
 
 // EEEEEE (dd/LL)

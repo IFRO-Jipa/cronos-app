@@ -9,8 +9,8 @@ import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
 import { useReportTableData } from "../WeekItemView/utils/useReportTableData";
 import Box from "@mui/material/Box";
-import setMinutes from "date-fns/setMinutes";
-import setHours from "date-fns/setHours";
+import { setMinutes } from "date-fns/setMinutes";
+import { setHours } from "date-fns/setHours";
 import { useNow } from "../../Utils/useNow";
 import { WeekItemViewDaysContext } from "./WeekItemViewDaysContext";
 

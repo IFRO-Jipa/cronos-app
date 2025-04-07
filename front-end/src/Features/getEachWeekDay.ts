@@ -1,5 +1,5 @@
 import { IListWeeksItem } from "./horarios-ifro-data-v2-client/api/resources/weeks/interfaces/IListWeeksItem";
-import eachDayOfInterval from "date-fns/eachDayOfInterval";
+import { eachDayOfInterval } from "date-fns/eachDayOfInterval";
 
 export const getEachWeekDay = (week?: IListWeeksItem) => {
   if (!week) {

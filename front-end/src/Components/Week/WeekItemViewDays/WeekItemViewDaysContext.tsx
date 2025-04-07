@@ -1,6 +1,6 @@
-import isAfter from "date-fns/isAfter";
-import setHours from "date-fns/setHours";
-import setMinutes from "date-fns/setMinutes";
+import { isAfter } from "date-fns/isAfter";
+import { setHours } from "date-fns/setHours";
+import { setMinutes } from "date-fns/setMinutes";
 import {
   Dispatch,
   FC,

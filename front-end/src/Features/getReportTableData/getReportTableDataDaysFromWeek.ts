@@ -1,7 +1,7 @@
 import { IListWeeksItem } from "../horarios-ifro-data-v2-client/api/resources/weeks/interfaces/IListWeeksItem";
 import { getEachWeekDay } from "../getEachWeekDay";
-import format from "date-fns/format";
-import localePTBR from "date-fns/locale/pt-BR";
+import { format } from "date-fns/format";
+import { ptBR as localePTBR } from "date-fns/locale/pt-BR";
 
 export const getReportTableDataDaysFromWeek = (
   week: IListWeeksItem | undefined,
