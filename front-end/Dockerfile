@@ -17,3 +17,6 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
 FROM dev-deps as build
 RUN pnpm run build
+
+FROM nginx
+COPY --from=build ./dist /var/share/nginx/html
