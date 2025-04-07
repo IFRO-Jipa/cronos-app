@@ -1,3 +1,4 @@
+import type { ITableRow } from "../../utils/core/interfaces/ITableRow";
 import {
   isIntervalRaw,
   parseInterval,
@@ -43,8 +44,8 @@ export type IDetectedRow =
   | IDetectedRowRegionClassesHeader
   | IDetectedRowRegionClassesSchedule;
 
-export const detectRow = function (cellsValues: (string | null)[]) {
-  const values = cellsValues.map((rawValue) => {
+export const detectRow = function (tableRow: ITableRow) {
+  const values = tableRow.values.map((rawValue) => {
     if (typeof rawValue == "string") {
       const value = rawValue.trim();
 

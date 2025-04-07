@@ -1,4 +1,4 @@
-import { extractScheduleByGoogleDocsSpreadsheetId } from "@cronos-app/extractor-google-docs-v1";
+import { extractLessonsSchedulesByGoogleDocsId } from "@cronos-app/extractor-google-docs-v1";
 import * as fs from "node:fs/promises";
 import * as path from "node:path";
 
@@ -15,8 +15,26 @@ const REPO_DATASET_V1 = path.join(REPO_ROOT, "dataset/v1");
 const REPO_DATASET_V1_DATA = path.join(REPO_DATASET_V1, "data");
 
 async function main() {
-  const result = await extractScheduleByGoogleDocsSpreadsheetId(DOC_ID);
-  const json = JSON.stringify(result, null, 2);
+  const lessonsSchedulesIterable =
+    await extractLessonsSchedulesByGoogleDocsId(DOC_ID);
+
+  const lessonsSchedules = Array.from(lessonsSchedulesIterable).sort((a, b) => {
+    const aDay = a.day;
+    const aPeriodStart = a.interval[0];
+
+    const bDay = b.day;
+    const bPeriodStart = b.interval[0];
+
+    const compare = aDay.localeCompare(bDay);
+
+    if (compare === 0) {
+      return aPeriodStart.localeCompare(bPeriodStart);
+    }
+
+    return compare;
+  });
+
+  const json = JSON.stringify(lessonsSchedules, null, 2);
   await fs.writeFile(path.join(REPO_DATASET_V1_DATA, "example.json"), json);
 }
 

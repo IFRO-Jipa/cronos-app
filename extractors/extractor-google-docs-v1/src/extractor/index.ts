@@ -1,2 +1,1 @@
-export * from "./extract-schedule";
-export * from "./schedule";
+export * from "./extract-lessons-schedules";

@@ -1,36 +1,86 @@
 import * as XLSX from "xlsx";
+import type { ITableRow } from "../core/interfaces/ITableRow";
 
-export const getWorkSheetByName = (workBook: XLSX.WorkBook, name: unknown) => {
-  if (typeof name === "string") {
-    const workSheet = workBook.Sheets[name];
-    if (workSheet) return workSheet;
-  }
+export function* getWorkSheetRows(
+  workSheet: XLSX.WorkSheet
+): Iterable<ITableRow> {
+  const data = workSheet["!data"];
 
-  return null;
+  if (!data) return;
+
+  const generateRows = function* () {
+    for (const rowCellsObjects of data) {
+      const values = rowCellsObjects.map((row) => {
+        if (row.w) {
+          return row.w.trim();
+        }
+
+        return null;
+      });
+
+      const tableRow = {
+        values,
+      } satisfies ITableRow;
+
+      yield tableRow;
+    }
+  };
+
+  yield* generateRows();
+}
+
+type IGetWorkBookWorkSheetsOptions = {
+  filterOnlyVisible?: true;
 };
 
-export const getWorkSheetBySheetProps = (
+export function* getWorkBookWorkSheets(
   workBook: XLSX.WorkBook,
-  sheetProps: XLSX.SheetProps
-) => {
-  return getWorkSheetByName(workBook, sheetProps.name);
-};
+  options: IGetWorkBookWorkSheetsOptions = {}
+) {
+  const workBookSheets = workBook.Workbook?.Sheets ?? [];
 
-export const getVisibleWorkSheets = (workBook: XLSX.WorkBook) => {
-  const sheets = workBook.Workbook?.Sheets ?? [];
+  const { filterOnlyVisible = true } = options;
 
-  const sheetsPropsVisible = sheets.filter(
-    (sheetProps) => sheetProps.Hidden === 0
-  );
+  for (const worksheetName of workBook.SheetNames) {
+    const workSheet = workBook.Sheets[worksheetName];
 
-  const woorkSheetsReferences = sheetsPropsVisible
-    .map((sheetProps) => ({
-      name: sheetProps.name,
-      worksheet: getWorkSheetByName(workBook, sheetProps.name),
-    }))
-    .filter((workSheetReference) => workSheetReference.worksheet !== null);
-  return woorkSheetsReferences as {
-    name: string | undefined;
-    worksheet: XLSX.WorkSheet;
-  }[];
-};
+    const workSheetProps = workBookSheets.find(
+      (sheetProps) => sheetProps.name === worksheetName
+    );
+
+    if (!workSheet || !workSheetProps) continue;
+
+    if (filterOnlyVisible && workSheetProps.Hidden !== 0) continue;
+
+    yield {
+      workSheet,
+      worksheetName,
+      workSheetProps,
+    };
+  }
+}
+
+export function* getWorkSheetsTableRows(workSheets: Iterable<XLSX.WorkSheet>) {
+  for (const workSheet of workSheets) {
+    yield* getWorkSheetRows(workSheet);
+  }
+}
+
+export function* getXlsxTableRows(
+  arrayBuffer: ArrayBuffer,
+  optionsGetWorkSheets?: IGetWorkBookWorkSheetsOptions
+): Iterable<ITableRow> {
+  const workBook = XLSX.read(arrayBuffer, {
+    dense: true,
+    cellHTML: false,
+    cellStyles: true,
+    cellFormula: false,
+  });
+
+  for (const { workSheet } of getWorkBookWorkSheets(
+    workBook,
+    optionsGetWorkSheets
+  )) {
+    yield* getWorkSheetRows(workSheet);
+  }
+}
