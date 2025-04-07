@@ -19,4 +19,4 @@ FROM dev-deps as build
 RUN pnpm run build
 
 FROM nginx
-COPY --from=build /var/cronos-app/.source/front-end/dist /var/share/nginx/html
+COPY --from=build /var/cronos-app/.source/front-end/dist /usr/share/nginx/html
