@@ -15,7 +15,7 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-l
 FROM prod-deps AS dev-deps
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
-FROM dev-deps as build
+FROM dev-deps AS build
 RUN pnpm run build
 
 FROM nginx
