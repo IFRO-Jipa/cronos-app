@@ -9,7 +9,7 @@ FROM base AS source
 COPY . /var/cronos-app/.source/front-end
 WORKDIR /var/cronos-app/.source/front-end
 
-FROM base AS prod-deps
+FROM source AS prod-deps
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
 
 FROM prod-deps AS dev-deps
