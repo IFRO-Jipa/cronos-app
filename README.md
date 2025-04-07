@@ -1,6 +1,8 @@
 # cronos-app
 
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/ifro-jipa/cronos-app/ci-cd.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=Continous%20Integration&labelColor=%23010409)](https://github.com/IFRO-Jipa/cronos-app/actions/workflows/ci-cd.yml)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/ifro-jipa/cronos-app/main?style=for-the-badge)
+![GitHub Repo stars](https://img.shields.io/github/stars/ifro-jipa/cronos-app?style=for-the-badge)
 
 Visualize os horários de aula do campus de forma simples e interativa ✨
 
