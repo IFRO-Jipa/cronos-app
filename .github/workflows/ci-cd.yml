@@ -4,6 +4,10 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
 
+concurrency:
+  group: ci-cd
+  cancel-in-progress: false
+
 on:
   push:
     branches:
