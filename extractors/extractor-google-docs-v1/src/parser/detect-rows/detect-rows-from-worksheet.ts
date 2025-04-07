@@ -12,8 +12,8 @@ export const detectRowsFromWorksheet = function* (
   }
 
   const generateRows = function* () {
-    for (const rowCellObjects of data) {
-      const cellsValues = rowCellObjects.map((row) => {
+    for (const rowCellsObjects of data) {
+      const cellsValues = rowCellsObjects.map((row) => {
         if (row.w) {
           return row.w.trim();
         }

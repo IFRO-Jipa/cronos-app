@@ -4,6 +4,8 @@ export enum GoogleDocsSpreadsheetExportFormat {
   XLSX = "xlsx",
 }
 
+// https://docs.google.com/presentation/d/<FileID>/export/<format>
+
 export function getGoogleDocsSpreadsheetDownloadUrl(
   docId: string,
   format: GoogleDocsSpreadsheetExportFormat

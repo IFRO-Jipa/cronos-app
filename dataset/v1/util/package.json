@@ -1,0 +1,15 @@
+{
+  "name": "@cronos-app/dataset-v1.util",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@cronos-app/extractor-google-docs-v1": "../../../extractors/extractor-google-docs-v1/"
+  }
+}
