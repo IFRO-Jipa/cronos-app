@@ -7,7 +7,7 @@ import { useWeekItemViewOverviewState } from "./useWeekItemViewOverviewState";
 export type IWeekItemViewOverviewContext = {
   imgURL: string | null;
 
-  outputElRef: RefObject<HTMLElement>;
+  outputElRef: RefObject<HTMLElement | null>;
 
   handleGenerateImgURL: () => Promise<void>;
 
