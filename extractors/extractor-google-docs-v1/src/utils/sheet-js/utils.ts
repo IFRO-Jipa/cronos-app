@@ -23,7 +23,14 @@ export const getVisibleWorkSheets = (workBook: XLSX.WorkBook) => {
     (sheetProps) => sheetProps.Hidden === 0
   );
 
-  return sheetsPropsVisible
-    .map((sheetProps) => getWorkSheetByName(workBook, sheetProps.name))
-    .filter((workSheet) => workSheet !== null);
+  const woorkSheetsReferences = sheetsPropsVisible
+    .map((sheetProps) => ({
+      name: sheetProps.name,
+      worksheet: getWorkSheetByName(workBook, sheetProps.name),
+    }))
+    .filter((workSheetReference) => workSheetReference.worksheet !== null);
+  return woorkSheetsReferences as {
+    name: string | undefined;
+    worksheet: XLSX.WorkSheet;
+  }[];
 };

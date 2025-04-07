@@ -4,10 +4,5 @@ export async function download(url: string, id: string) {
 
   const arrayBuffer = await res.arrayBuffer();
 
-  return {
-    id,
-    getArrayBuffer() {
-      return arrayBuffer;
-    },
-  };
+  return arrayBuffer;
 }

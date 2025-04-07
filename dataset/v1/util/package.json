@@ -10,6 +10,7 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@cronos-app/extractor-google-docs-v1": "../../../extractors/extractor-google-docs-v1/"
+    "@cronos-app/extractor-google-docs-v1": "../../../extractors/extractor-google-docs-v1/",
+    "@typespec/compiler": "^1.0.0-rc.0"
   }
 }
