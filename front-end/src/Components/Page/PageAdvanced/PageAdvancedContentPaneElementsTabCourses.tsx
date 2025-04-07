@@ -7,17 +7,17 @@ import { useMemo } from "react";
 const PageAdvancedContentPaneElementsTabCourses = () => {
   const resultItemsQuery = useContextSelector(
     PageAdvancedContext,
-    ({ resultItemsQuery }) => resultItemsQuery
+    ({ resultItemsQuery }) => resultItemsQuery,
   );
 
   const resultItems = useMemo(
     () => resultItemsQuery.data ?? [],
-    [resultItemsQuery.data]
+    [resultItemsQuery.data],
   );
 
   const classesItems = useMemo(
     () => (resultItems ?? []).filter((i) => i.type === "class"),
-    [resultItems]
+    [resultItems],
   );
 
   return (

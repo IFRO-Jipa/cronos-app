@@ -10,7 +10,7 @@ export const listWeeksResource: IAPIResource<
     .then((res: IListWeeksResourceResponseDto) =>
       res.sort(
         (a, b) =>
-          new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime()
-      )
+          new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime(),
+      ),
     );
 };

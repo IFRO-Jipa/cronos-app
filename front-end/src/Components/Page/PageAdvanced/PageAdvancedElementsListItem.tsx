@@ -14,7 +14,7 @@ export type IAdvancedPageElementsListItemProps = {
 };
 
 const PageAdvancedElementsListItem: FC<IAdvancedPageElementsListItemProps> = (
-  props
+  props,
 ) => {
   const { item } = props;
 
@@ -22,17 +22,17 @@ const PageAdvancedElementsListItem: FC<IAdvancedPageElementsListItemProps> = (
 
   const isItemSelected = useContextSelector(
     PageAdvancedContext,
-    ({ isItemSelected }) => isItemSelected
+    ({ isItemSelected }) => isItemSelected,
   );
   const setItemSelectedState = useContextSelector(
     PageAdvancedContext,
-    ({ setItemSelectedState }) => setItemSelectedState
+    ({ setItemSelectedState }) => setItemSelectedState,
   );
 
   const checked = useMemo(() => isItemSelected(id), [isItemSelected, id]);
   const setChecked = useCallback(
     (state: boolean) => setItemSelectedState(id, state),
-    [setItemSelectedState, id]
+    [setItemSelectedState, id],
   );
 
   if (item.type === "teacher") {

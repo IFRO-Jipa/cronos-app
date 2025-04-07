@@ -12,6 +12,6 @@ export const getWeekResource: IAPIResource<
       .then((res) => res.json())
       .then(
         (res: IListWeeksResourceResponseDto) =>
-          res.find((i) => i.id === weekId) ?? null
+          res.find((i) => i.id === weekId) ?? null,
       );
   };

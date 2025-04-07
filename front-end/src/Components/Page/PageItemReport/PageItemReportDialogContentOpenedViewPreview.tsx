@@ -10,12 +10,12 @@ import { WeekItemViewOverviewContext } from "../../Week/WeekItemViewOverview/Wee
 export const PageItemReportDialogContentOpenedViewPreview = () => {
   const imgURL = useContextSelector(
     WeekItemViewOverviewContext,
-    ({ imgURL }) => imgURL
+    ({ imgURL }) => imgURL,
   );
 
   const handleGenerateImgURL = useContextSelector(
     WeekItemViewOverviewContext,
-    ({ handleGenerateImgURL }) => handleGenerateImgURL
+    ({ handleGenerateImgURL }) => handleGenerateImgURL,
   );
 
   useEffect(() => {

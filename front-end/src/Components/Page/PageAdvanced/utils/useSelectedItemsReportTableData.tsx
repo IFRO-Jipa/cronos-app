@@ -5,7 +5,7 @@ import { useReportDataForItems } from "./useReportDataForItems";
 export const useSelectedItemsReportTableData = () => {
   const selectedItems = useContextSelector(
     PageAdvancedContext,
-    ({ selectedItems }) => selectedItems
+    ({ selectedItems }) => selectedItems,
   );
 
   const { reportTableData } = useReportDataForItems(selectedItems);

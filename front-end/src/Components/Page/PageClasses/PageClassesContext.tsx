@@ -51,7 +51,7 @@ export const PageClassesContextProvider: FC<PropsWithChildren<{}>> = ({
         label: COURSES_ID_LABELS[id],
         emoji: COURSES_ID_EMOJIS[id],
       })),
-    [availableClasses]
+    [availableClasses],
   );
 
   const availablePeriods = useMemo(() => {
@@ -79,7 +79,7 @@ export const PageClassesContextProvider: FC<PropsWithChildren<{}>> = ({
       : Object.keys(availableClasses[targetCourse])[0];
 
     return Object.values(availableClasses[targetCourse][targetPeriod]).map(
-      (id) => ({ id, label: COURSES_LABEL_LABELS[id.toLocaleUpperCase()] })
+      (id) => ({ id, label: COURSES_LABEL_LABELS[id.toLocaleUpperCase()] }),
     );
   }, [availableClasses, availableCourses, selectedCourse, selectedPeriod]);
 

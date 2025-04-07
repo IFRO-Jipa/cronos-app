@@ -12,40 +12,40 @@ import * as classes from "./PageClasses.module.css";
 const PageClassesContent = () => {
   const selectedCourse = useContextSelector(
     PageClassesContext,
-    ({ selectedCourse }) => selectedCourse
+    ({ selectedCourse }) => selectedCourse,
   );
   const setSelectedCourse = useContextSelector(
     PageClassesContext,
-    ({ setSelectedCourse }) => setSelectedCourse
+    ({ setSelectedCourse }) => setSelectedCourse,
   );
   const selectedPeriod = useContextSelector(
     PageClassesContext,
-    ({ selectedPeriod }) => selectedPeriod
+    ({ selectedPeriod }) => selectedPeriod,
   );
   const setSelectedPeriod = useContextSelector(
     PageClassesContext,
-    ({ setSelectedPeriod }) => setSelectedPeriod
+    ({ setSelectedPeriod }) => setSelectedPeriod,
   );
   const selectedLabel = useContextSelector(
     PageClassesContext,
-    ({ selectedLabel }) => selectedLabel
+    ({ selectedLabel }) => selectedLabel,
   );
   const setSelectedLabel = useContextSelector(
     PageClassesContext,
-    ({ setSelectedLabel }) => setSelectedLabel
+    ({ setSelectedLabel }) => setSelectedLabel,
   );
 
   const availableCourses = useContextSelector(
     PageClassesContext,
-    ({ availableCourses }) => availableCourses
+    ({ availableCourses }) => availableCourses,
   );
   const availablePeriods = useContextSelector(
     PageClassesContext,
-    ({ availablePeriods }) => availablePeriods
+    ({ availablePeriods }) => availablePeriods,
   );
   const availableLabels = useContextSelector(
     PageClassesContext,
-    ({ availableLabels }) => availableLabels
+    ({ availableLabels }) => availableLabels,
   );
 
   const containerElRef = useRef<HTMLDivElement | null>(null);
@@ -76,7 +76,7 @@ const PageClassesContent = () => {
 
         const paddingFactor = Math.max(
           containerHeight / 2 - elementHeight / 2,
-          2 * 16
+          2 * 16,
         );
 
         if (idx === 0) {

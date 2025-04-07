@@ -33,9 +33,11 @@ export type IWeeksContext = {
 export const WeeksContext = createContext({} as IWeeksContext);
 
 export const WeeksContextProvider = ({ children }: { children: any }) => {
-  const weeksQuery = useQuery(["weeks"], () =>
-    api.invokeResource(api.resources.weeks.listWeeksResource, undefined)
-  );
+  const weeksQuery = useQuery({
+    queryKey: ["weeks"],
+    queryFn: () =>
+      api.invokeResource(api.resources.weeks.listWeeksResource, undefined),
+  });
 
   const [selectedWeek, setSelectedWeek] = useState<string | null>(null);
 
@@ -60,28 +62,28 @@ export const WeeksContextProvider = ({ children }: { children: any }) => {
 
   const week = useMemo(
     () => allWeeks.find((i) => i.id === selectedWeek),
-    [allWeeks, selectedWeek]
+    [allWeeks, selectedWeek],
   );
 
-  const weekTeachersQuery = useQuery(
-    ["week", selectedWeek, "teachers"],
-    async () => {
+  const weekTeachersQuery = useQuery({
+    queryKey: ["week", selectedWeek, "teachers"],
+    queryFn: async () => {
       if (selectedWeek) {
         return api.invokeResource(
           api.resources.weeks.listWeekTeachersResource,
           {
             weekId: selectedWeek,
-          }
+          },
         );
       }
 
       return [];
-    }
-  );
+    },
+  });
 
-  const weekClassesQuery = useQuery(
-    ["week", selectedWeek, "classes"],
-    async () => {
+  const weekClassesQuery = useQuery({
+    queryKey: ["week", selectedWeek, "classes"],
+    queryFn: async () => {
       if (selectedWeek) {
         return api.invokeResource(api.resources.weeks.listWeekClassesResource, {
           weekId: selectedWeek,
@@ -89,8 +91,8 @@ export const WeeksContextProvider = ({ children }: { children: any }) => {
       }
 
       return [];
-    }
-  );
+    },
+  });
 
   return (
     <WeeksContext.Provider

@@ -4,7 +4,7 @@ import format from "date-fns/format";
 import localePTBR from "date-fns/locale/pt-BR";
 
 export const getReportTableDataDaysFromWeek = (
-  week: IListWeeksItem | undefined
+  week: IListWeeksItem | undefined,
 ) =>
   getEachWeekDay(week).map((dayDate) => {
     const weekDayOrder = dayDate.getDay() - 1;

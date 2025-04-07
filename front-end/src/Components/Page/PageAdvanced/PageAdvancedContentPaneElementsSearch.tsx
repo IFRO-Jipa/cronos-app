@@ -5,11 +5,11 @@ import TextField from "@mui/material/TextField";
 const PageAdvancedContentPaneElementsSearch = () => {
   const searchQuery = useContextSelector(
     PageAdvancedContext,
-    ({ searchQuery }) => searchQuery
+    ({ searchQuery }) => searchQuery,
   );
   const setSearchQuery = useContextSelector(
     PageAdvancedContext,
-    ({ setSearchQuery }) => setSearchQuery
+    ({ setSearchQuery }) => setSearchQuery,
   );
 
   return (

@@ -10,7 +10,7 @@ export const PageItemReportDialog = () => {
 
   const handleClose = useContextSelector(
     PageItemReportContext,
-    ({ handleClose }) => handleClose
+    ({ handleClose }) => handleClose,
   );
 
   return (

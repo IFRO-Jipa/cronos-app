@@ -4,7 +4,7 @@ import { PageItemReportDialogContentClosedView } from "./PageItemReportDialogCon
 import loadable from "@loadable/component";
 
 const PageItemReportDialogContentOpenedView = loadable(
-  () => import("./PageItemReportDialogContentOpenedView")
+  () => import("./PageItemReportDialogContentOpenedView"),
 );
 
 export const PageItemReportDialogContent = () => {

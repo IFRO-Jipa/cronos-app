@@ -10,7 +10,7 @@ const PageClassHeader = () => {
   const navigate = useNavigate();
 
   const hasData = useContextSelector(PageClassContext, ({ dataQuery }) =>
-    Boolean(dataQuery.data)
+    Boolean(dataQuery.data),
   );
 
   const pathReport = usePageClassPathReport();

@@ -2,7 +2,7 @@ import { IGetWeekClassResourceResponseDto } from "../horarios-ifro-data-v2-clien
 import { getFixedSubjectSlug } from "./utils/getFixedSubjectSlug";
 
 export const getReportTableDataColumnFromWeekClass = (
-  data: IGetWeekClassResourceResponseDto
+  data: IGetWeekClassResourceResponseDto,
 ) => {
   return {
     header: data.klass.slugs[0].slug,

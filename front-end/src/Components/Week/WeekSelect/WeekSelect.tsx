@@ -19,19 +19,19 @@ const WeekSelect: FC<IWeekSelectProps> = (props) => {
 
   const selectedWeek = useContextSelector(
     WeeksContext,
-    ({ selectedWeek }) => selectedWeek
+    ({ selectedWeek }) => selectedWeek,
   );
 
   const setSelectedWeek = useContextSelector(
     WeeksContext,
-    ({ setSelectedWeek }) => setSelectedWeek
+    ({ setSelectedWeek }) => setSelectedWeek,
   );
 
   const weeks = useContextSelector(WeeksContext, ({ weeks }) => weeks);
 
   const isLoading = useContextSelector(
     WeeksContext,
-    ({ weeksQuery }) => weeksQuery.isLoading
+    ({ weeksQuery }) => weeksQuery.isLoading,
   );
 
   return (
@@ -66,7 +66,7 @@ const WeekSelect: FC<IWeekSelectProps> = (props) => {
               week.startsAt && week.endsAt
                 ? `${format(new Date(week.startsAt), "dd/MM")} a ${format(
                     new Date(week.endsAt),
-                    "dd/MM"
+                    "dd/MM",
                   )}`
                 : week.title;
 

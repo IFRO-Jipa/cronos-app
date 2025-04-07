@@ -7,12 +7,12 @@ import { useMemo } from "react";
 const PageAdvancedContentPaneElementsTabAll = () => {
   const resultItemsQuery = useContextSelector(
     PageAdvancedContext,
-    ({ resultItemsQuery }) => resultItemsQuery
+    ({ resultItemsQuery }) => resultItemsQuery,
   );
 
   const resultItems = useMemo(
     () => resultItemsQuery.data ?? [],
-    [resultItemsQuery.data]
+    [resultItemsQuery.data],
   );
 
   const allItems = useMemo(() => resultItems ?? [], [resultItems]);

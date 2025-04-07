@@ -9,13 +9,13 @@ import { WeekItemViewContext } from "../WeekItemViewContext";
 import { IGetReportTableDataForItemOptions } from "../../../../Features/getReportTableData/interfaces/IGetReportTableDataForItemOptions";
 
 export const useReportTableData = (
-  options?: IGetReportTableDataForItemOptions
+  options?: IGetReportTableDataForItemOptions,
 ) => {
   const mode = useContextSelector(WeekItemViewContext, ({ mode }) => mode);
 
   const data = useContextSelector(
     WeekItemViewContext,
-    ({ dataQuery }) => dataQuery.data
+    ({ dataQuery }) => dataQuery.data,
   );
 
   return useMemo((): IReportTableData => {
@@ -24,14 +24,14 @@ export const useReportTableData = (
         case "class": {
           return getReportTableDataForClass(
             data as IGetWeekClassResourceResponseDto,
-            options
+            options,
           );
         }
 
         case "teacher": {
           return getReportTableDataForTeacher(
             data as IGetWeekTeacherResourceResponseDto,
-            options
+            options,
           );
         }
       }

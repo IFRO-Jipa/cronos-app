@@ -14,12 +14,12 @@ export const PageTeachersContentResults = () => {
 
   const resultTeachers = useContextSelector(
     PageTeachersContext,
-    ({ resultTeachers }) => resultTeachers
+    ({ resultTeachers }) => resultTeachers,
   );
 
   const isLoading = useContextSelector(
     PageTeachersContext,
-    ({ isLoading }) => isLoading
+    ({ isLoading }) => isLoading,
   );
 
   return (

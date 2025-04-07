@@ -6,7 +6,7 @@ import { IGetReportTableDataForItemOptions } from "./interfaces/IGetReportTableD
 
 export const getReportTableDataForClass = (
   data: IGetWeekClassResourceResponseDto | null,
-  options: IGetReportTableDataForItemOptions = {}
+  options: IGetReportTableDataForItemOptions = {},
 ): IReportTableData => {
   if (!data) {
     return {
@@ -19,12 +19,12 @@ export const getReportTableDataForClass = (
 
   return {
     days: [...getReportTableDataDaysFromWeek(data.week)].filter((i) =>
-      weekDayOrders ? weekDayOrders.includes(i.weekDayOrder) : true
+      weekDayOrders ? weekDayOrders.includes(i.weekDayOrder) : true,
     ),
     columns: [getReportTableDataColumnFromWeekClass(data)].map((column) => ({
       ...column,
       items: column.items.filter((item) =>
-        weekDayOrders ? weekDayOrders.includes(item.weekDay) : true
+        weekDayOrders ? weekDayOrders.includes(item.weekDay) : true,
       ),
     })),
   };

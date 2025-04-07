@@ -37,12 +37,12 @@ export const PageAdvancedContextProvider: FC<PropsWithChildren<{}>> = ({
 
   const classesQuery = useContextSelector(
     WeeksContext,
-    ({ weekClassesQuery }) => weekClassesQuery
+    ({ weekClassesQuery }) => weekClassesQuery,
   );
 
   const teachersQuery = useContextSelector(
     WeeksContext,
-    ({ weekTeachersQuery }) => weekTeachersQuery
+    ({ weekTeachersQuery }) => weekTeachersQuery,
   );
 
   const classes = classesQuery.data;
@@ -55,7 +55,7 @@ export const PageAdvancedContextProvider: FC<PropsWithChildren<{}>> = ({
         type: "class",
         id: `class-${data.id}`,
       })),
-    [classes]
+    [classes],
   );
 
   const teachersItems: IPageAdvancedElementsListItem[] = useMemo(
@@ -65,22 +65,22 @@ export const PageAdvancedContextProvider: FC<PropsWithChildren<{}>> = ({
         type: "teacher",
         id: `teacher-${teacher.id}`,
       })),
-    [teachers]
+    [teachers],
   );
 
   const allItems = useMemo(
     () => [...classesItems, ...teachersItems],
-    [classesItems, teachersItems]
+    [classesItems, teachersItems],
   );
 
   const isItemSelected = useCallback(
     (id: string) => selectedItemsIds.includes(id),
-    [selectedItemsIds]
+    [selectedItemsIds],
   );
 
   const selectedItems = useMemo(
     () => allItems.filter((i) => isItemSelected(i.id)),
-    [isItemSelected, allItems]
+    [isItemSelected, allItems],
   );
 
   const setItemSelectedState = useCallback((id: string, state: boolean) => {
@@ -91,9 +91,9 @@ export const PageAdvancedContextProvider: FC<PropsWithChildren<{}>> = ({
     });
   }, []);
 
-  const resultItemsQuery = useQuery(
-    [allItems, "query", searchQuery],
-    async () => {
+  const resultItemsQuery = useQuery({
+    queryKey: [allItems, "query", searchQuery],
+    queryFn: async () => {
       const Fuse = await FuseModule;
 
       if (!searchQuery.trim()) {
@@ -110,8 +110,8 @@ export const PageAdvancedContextProvider: FC<PropsWithChildren<{}>> = ({
       const fuse = new Fuse(allItems, options);
 
       return fuse.search(searchQuery).map((i) => i.item);
-    }
-  );
+    },
+  });
 
   return (
     <PageAdvancedContext.Provider

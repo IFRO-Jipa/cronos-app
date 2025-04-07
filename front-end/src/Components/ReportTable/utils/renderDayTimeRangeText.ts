@@ -1,7 +1,7 @@
 import { IReportTableDataTimeRange } from "../interfaces/IReportTableData";
 
 export const renderDayTimeRangeText = (
-  dayTimeRange: Omit<IReportTableDataTimeRange, "text">
+  dayTimeRange: Omit<IReportTableDataTimeRange, "text">,
 ): IReportTableDataTimeRange => ({
   ...dayTimeRange,
   text: [

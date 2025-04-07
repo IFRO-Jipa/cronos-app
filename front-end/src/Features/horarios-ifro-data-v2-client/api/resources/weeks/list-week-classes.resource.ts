@@ -8,6 +8,6 @@ export const listWeekClassesResource: IAPIResource<
   (httpClient) =>
   ({ weekId }) => {
     return httpClient({ url: `/views/weeks/${weekId}/classes/data.json` }).then(
-      (res) => res.json()
+      (res) => res.json(),
     );
   };

@@ -10,7 +10,7 @@ import { useContextSelector } from "use-context-selector";
 export const PageItemReportDialogContentClosedView = () => {
   const handleClose = useContextSelector(
     PageItemReportContext,
-    ({ handleClose }) => handleClose
+    ({ handleClose }) => handleClose,
   );
 
   return (

@@ -3,7 +3,7 @@ const PIXEL_FIX_HEIGHT = 17;
 
 export const getSVGDataForTable = (
   tableEl: HTMLTableElement,
-  tableStyleEl: HTMLStyleElement
+  tableStyleEl: HTMLStyleElement,
 ) => {
   const boundingRect = tableEl.getBoundingClientRect();
 

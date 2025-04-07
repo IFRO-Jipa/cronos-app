@@ -10,6 +10,6 @@ export const listWeekTeachersResource: IAPIResource<
     return httpClient({ url: `/views/weeks/${weekId}/teachers/data.json` })
       .then((res) => res.json())
       .then((res: IListWeekTeachersResourceResponseDto) =>
-        res.filter((teacher) => teacher.slugs[0].slug.length)
+        res.filter((teacher) => teacher.slugs[0].slug.length),
       );
   };

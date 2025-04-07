@@ -7,17 +7,17 @@ import { useMemo } from "react";
 const PageAdvancedContentPaneElementsTabTeacher = () => {
   const resultItemsQuery = useContextSelector(
     PageAdvancedContext,
-    ({ resultItemsQuery }) => resultItemsQuery
+    ({ resultItemsQuery }) => resultItemsQuery,
   );
 
   const resultItems = useMemo(
     () => resultItemsQuery.data ?? [],
-    [resultItemsQuery.data]
+    [resultItemsQuery.data],
   );
 
   const teachersItems = useMemo(
     () => (resultItems ?? []).filter((i) => i.type === "teacher"),
-    [resultItems]
+    [resultItems],
   );
 
   return (

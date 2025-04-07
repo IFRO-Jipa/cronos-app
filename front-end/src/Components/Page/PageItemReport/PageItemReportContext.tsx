@@ -9,7 +9,7 @@ export type IPageItemReportContext = {
 };
 
 export const PageItemReportContext = createContext(
-  {} as IPageItemReportContext
+  {} as IPageItemReportContext,
 );
 
 type IPageClassReportContextProviderProps = PropsWithChildren<{

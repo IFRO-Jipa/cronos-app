@@ -36,17 +36,17 @@ export const PageTeachersContextProvider: FC<PropsWithChildren<{}>> = ({
 
   const teachersQuery = useContextSelector(
     WeeksContext,
-    ({ weekTeachersQuery }) => weekTeachersQuery
+    ({ weekTeachersQuery }) => weekTeachersQuery,
   );
 
   const allTeachers = useMemo(
     () => teachersQuery.data ?? [],
-    [teachersQuery.data]
+    [teachersQuery.data],
   );
 
-  const resultTeachersQuery = useQuery(
-    [allTeachers, "query", searchQuery],
-    async () => {
+  const resultTeachersQuery = useQuery({
+    queryKey: [allTeachers, "query", searchQuery],
+    queryFn: async () => {
       const Fuse = await FuseModule;
 
       if (!searchQuery.trim()) {
@@ -63,12 +63,12 @@ export const PageTeachersContextProvider: FC<PropsWithChildren<{}>> = ({
       const fuse = new Fuse(allTeachers, options);
 
       return fuse.search(searchQuery).map((i) => i.item);
-    }
-  );
+    },
+  });
 
   const resultTeachers = useMemo(
     () => resultTeachersQuery.data ?? [],
-    [resultTeachersQuery.data]
+    [resultTeachersQuery.data],
   );
 
   return (

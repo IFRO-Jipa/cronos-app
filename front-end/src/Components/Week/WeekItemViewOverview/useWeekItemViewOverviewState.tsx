@@ -12,7 +12,7 @@ import { IReportTableData } from "../../ReportTable/interfaces/IReportTableData"
 import ReportTable from "../../ReportTable/ReportTable";
 
 export const useWeekItemViewOverviewState = (
-  reportTableData: IReportTableData
+  reportTableData: IReportTableData,
 ) => {
   const [imgURL, setImgURL] = useState("");
 
@@ -40,17 +40,17 @@ export const useWeekItemViewOverviewState = (
             return null;
           })}
           <ReportTable data={reportTableData} />
-        </>
+        </>,
       );
     });
 
     const svgData = getSVGDataForTable(
       rootEl.querySelector("table")!,
-      rootEl.querySelector("style")!
+      rootEl.querySelector("style")!,
     );
 
     const svgURL = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
-      svgData
+      svgData,
     )}`;
 
     const img = new Image();
@@ -76,7 +76,7 @@ export const useWeekItemViewOverviewState = (
           resolve(blob);
         }
         reject();
-      }, "image/png")
+      }, "image/png"),
     );
 
     outputEl.removeChild(rootEl);

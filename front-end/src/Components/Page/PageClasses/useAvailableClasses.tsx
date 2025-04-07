@@ -6,28 +6,31 @@ import { PLACEHOLDER_WEEK_CLASSES } from "./utils/PLACEHOLDER_WEEK_CLASSES";
 export const useAvailableClasses = () => {
   const weekClassesQuery = useContextSelector(
     WeeksContext,
-    ({ weekClassesQuery }) => weekClassesQuery
+    ({ weekClassesQuery }) => weekClassesQuery,
   );
 
   const weekClasses = useMemo(
     () => weekClassesQuery.data ?? PLACEHOLDER_WEEK_CLASSES,
-    [weekClassesQuery.data]
+    [weekClassesQuery.data],
   );
 
   const availableClasses = useMemo(() => {
-    return weekClasses.reduce((acc, i) => {
-      acc[i.course] ||= {};
+    return weekClasses.reduce(
+      (acc, i) => {
+        acc[i.course] ||= {};
 
-      const course = acc[i.course];
+        const course = acc[i.course];
 
-      course[i.year] ||= [];
+        course[i.year] ||= [];
 
-      const courseYear = course[i.year];
+        const courseYear = course[i.year];
 
-      courseYear.push(i.label);
+        courseYear.push(i.label);
 
-      return acc;
-    }, {} as Record<string, Record<string, string[]>>);
+        return acc;
+      },
+      {} as Record<string, Record<string, string[]>>,
+    );
   }, [weekClasses]);
 
   const { isLoading } = weekClassesQuery;

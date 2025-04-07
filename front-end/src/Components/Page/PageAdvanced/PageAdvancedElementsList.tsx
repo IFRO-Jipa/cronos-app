@@ -9,7 +9,7 @@ export type IAdvancedPageElementsListProps = {
 };
 
 const PageAdvancedElementsList: FC<IAdvancedPageElementsListProps> = (
-  props
+  props,
 ) => {
   const { items } = props;
 

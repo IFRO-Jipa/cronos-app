@@ -12,9 +12,10 @@ export const PageTeacherFixtureIdMappings: FC<PropsWithChildren<{}>> = ({
 
   const teacherId = usePageTeacherTeacherId();
 
-  const targetTeacherIdQuery = useQuery(["targetTeacherId", teacherId], () =>
-    getMappedTeacherId(teacherId)
-  );
+  const targetTeacherIdQuery = useQuery({
+    queryKey: ["targetTeacherId", teacherId],
+    queryFn: () => getMappedTeacherId(teacherId),
+  });
 
   useEffect(() => {
     const targetTeacherId = targetTeacherIdQuery.data;

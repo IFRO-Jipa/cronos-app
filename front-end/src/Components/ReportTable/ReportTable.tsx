@@ -60,11 +60,11 @@ const ReportTable: FC<IReportTableProps> = (props) => {
                     const displayText =
                       column.items === "loading"
                         ? "Carregando..."
-                        : column?.items.find(
+                        : (column?.items.find(
                             (i) =>
                               i.order === dayTimeRangeOrder &&
-                              i.weekDay === day.weekDayOrder
-                          )?.text ?? "-";
+                              i.weekDay === day.weekDayOrder,
+                          )?.text ?? "-");
 
                     return (
                       <td key={column.header} className="col-text">

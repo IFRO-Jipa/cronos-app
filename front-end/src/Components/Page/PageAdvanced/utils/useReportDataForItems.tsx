@@ -15,13 +15,13 @@ import { getReportTableDataDaysFromWeek } from "../../../../Features/getReportTa
 import { getReportTableDataColumnFromWeekClass } from "../../../../Features/getReportTableData/getReportTableDataColumnFromWeekClass";
 
 export const useReportDataForItems = (
-  selectedItems: IPageAdvancedElementsListItem[]
+  selectedItems: IPageAdvancedElementsListItem[],
 ) => {
   const week = useContextSelector(WeeksContext, ({ week }) => week);
 
   const weekId = useContextSelector(
     WeeksContext,
-    ({ selectedWeek }) => selectedWeek
+    ({ selectedWeek }) => selectedWeek,
   );
 
   const itemsWeekQueries = useQueries({
@@ -66,13 +66,13 @@ export const useReportDataForItems = (
 
         if (item.type === "teacher") {
           return getReportTableDataColumnFromWeekTeacher(
-            itemWeekQuery.data as IGetWeekTeacherResourceResponseDto
+            itemWeekQuery.data as IGetWeekTeacherResourceResponseDto,
           );
         }
 
         if (item.type === "class") {
           return getReportTableDataColumnFromWeekClass(
-            itemWeekQuery.data as IGetWeekClassResourceResponseDto
+            itemWeekQuery.data as IGetWeekClassResourceResponseDto,
           );
         }
 

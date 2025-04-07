@@ -10,6 +10,6 @@ export const getEachWeekDay = (week?: IListWeeksItem) => {
   const endDay = new Date(week.endsAt);
 
   return eachDayOfInterval({ start: startDay, end: endDay }).sort(
-    (a, b) => a.getTime() - b.getTime()
+    (a, b) => a.getTime() - b.getTime(),
   );
 };

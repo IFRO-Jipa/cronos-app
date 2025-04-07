@@ -31,22 +31,22 @@ export type IWeekItemViewDaysContext = {
 };
 
 export const WeekItemViewDaysContext = createContext(
-  {} as IWeekItemViewDaysContext
+  {} as IWeekItemViewDaysContext,
 );
 
 export const WeekItemViewDaysContextProvider: FC<PropsWithChildren<{}>> = (
-  props
+  props,
 ) => {
   const { children } = props;
 
   const isLoading = useContextSelector(
     WeekItemViewContext,
-    ({ dataQuery }) => dataQuery.isLoading
+    ({ dataQuery }) => dataQuery.isLoading,
   );
 
   const data = useContextSelector(
     WeekItemViewContext,
-    ({ dataQuery }) => dataQuery.data
+    ({ dataQuery }) => dataQuery.data,
   );
 
   const [selectedTab, setSelectedTab] = useState(WeekDayTab.SEG);
@@ -67,12 +67,12 @@ export const WeekItemViewDaysContextProvider: FC<PropsWithChildren<{}>> = (
     const today = now.getDay() - 1;
 
     const latestDayTimeRange = dayTimeRanges.find(
-      (i, idx, arr) => idx === arr.length - 1
+      (i, idx, arr) => idx === arr.length - 1,
     )!;
 
     const latestDayTimeRangeEndDate = setHours(
       setMinutes(now, latestDayTimeRange.endMinute),
-      latestDayTimeRange.endHour
+      latestDayTimeRange.endHour,
     );
 
     const goToFirstTab =

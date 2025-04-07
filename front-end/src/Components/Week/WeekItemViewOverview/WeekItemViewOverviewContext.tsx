@@ -15,7 +15,7 @@ export type IWeekItemViewOverviewContext = {
 };
 
 export const WeekItemViewOverviewContext = createContext(
-  {} as IWeekItemViewOverviewContext
+  {} as IWeekItemViewOverviewContext,
 );
 
 type IWeekItemViewOverviewContextProviderProps = PropsWithChildren<{}>;

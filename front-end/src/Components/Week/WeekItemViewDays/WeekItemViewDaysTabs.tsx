@@ -21,22 +21,22 @@ export const WeekItemViewDaysTabs = () => {
 
   const setSelectedTab = useContextSelector(
     WeekItemViewDaysContext,
-    ({ setSelectedTab }) => setSelectedTab
+    ({ setSelectedTab }) => setSelectedTab,
   );
 
   const selectedTab = useContextSelector(
     WeekItemViewDaysContext,
-    ({ selectedTab }) => selectedTab
+    ({ selectedTab }) => selectedTab,
   );
 
   const isLoading = useContextSelector(
     WeekItemViewDaysContext,
-    ({ isLoading }) => isLoading
+    ({ isLoading }) => isLoading,
   );
 
   const eachWeekDay = useContextSelector(
     WeekItemViewDaysContext,
-    ({ eachWeekDay }) => eachWeekDay
+    ({ eachWeekDay }) => eachWeekDay,
   );
 
   const handleSelectedTabChange = (_event: any, newValue: any) => {
@@ -46,7 +46,7 @@ export const WeekItemViewDaysTabs = () => {
   const formatDayLabel = useCallback(
     (day: Date | number) =>
       `${formatWeekDayTabLabel(day)}${isSameDay(now, day) ? " (HOJE)" : ""}`,
-    [now]
+    [now],
   );
 
   const [eachWeekDayCache, setEachWeekDayCache] = useState(() => eachWeekDay);

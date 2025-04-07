@@ -6,16 +6,19 @@ import * as api from "../../../Features/horarios-ifro-data-v2-client/api";
 export const useWeekTeacherQuery = (teacherId: string) => {
   const weekId = useContextSelector(
     WeeksContext,
-    ({ selectedWeek }) => selectedWeek
+    ({ selectedWeek }) => selectedWeek,
   );
 
-  return useQuery(["week", weekId, "teachers", teacherId], async () => {
-    if (weekId) {
-      return api.invokeResource(api.resources.weeks.getWeekTeacherResource, {
-        weekId,
-        teacherId,
-      });
-    }
-    return null;
+  return useQuery({
+    queryKey: ["week", weekId, "teachers", teacherId],
+    queryFn: async () => {
+      if (weekId) {
+        return api.invokeResource(api.resources.weeks.getWeekTeacherResource, {
+          weekId,
+          teacherId,
+        });
+      }
+      return null;
+    },
   });
 };

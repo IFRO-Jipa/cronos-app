@@ -10,7 +10,7 @@ import { PageItemReportDialogContentOpenedViewPreview } from "./PageItemReportDi
 const PageItemReportDialogContentOpenedView = () => {
   const handleClose = useContextSelector(
     PageItemReportContext,
-    ({ handleClose }) => handleClose
+    ({ handleClose }) => handleClose,
   );
 
   return (

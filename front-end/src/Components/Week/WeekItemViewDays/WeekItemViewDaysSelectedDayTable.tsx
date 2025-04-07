@@ -17,12 +17,12 @@ import { WeekItemViewDaysContext } from "./WeekItemViewDaysContext";
 const WeekItemViewDaysSelectedDayTable = () => {
   const selectedTab = useContextSelector(
     WeekItemViewDaysContext,
-    ({ selectedTab }) => selectedTab
+    ({ selectedTab }) => selectedTab,
   );
 
   const dayTimeRanges = useContextSelector(
     WeekItemViewDaysContext,
-    ({ dayTimeRanges }) => dayTimeRanges
+    ({ dayTimeRanges }) => dayTimeRanges,
   );
 
   const weekDayOrder = useMemo(() => selectedTab, [selectedTab]);
@@ -54,11 +54,11 @@ const WeekItemViewDaysSelectedDayTable = () => {
 
                 const startDate = setMinutes(
                   setHours(now, dayTimeRange.startHour),
-                  dayTimeRange.startMinute
+                  dayTimeRange.startMinute,
                 );
                 const endDate = setMinutes(
                   setHours(now, dayTimeRange.endHour),
-                  dayTimeRange.endMinute
+                  dayTimeRange.endMinute,
                 );
 
                 return now >= startDate && now < endDate;
@@ -84,7 +84,7 @@ const WeekItemViewDaysSelectedDayTable = () => {
                       const targetItem = items.find(
                         (item) =>
                           item.order === dayTimeRange.order &&
-                          item.weekDay === weekDayOrder
+                          item.weekDay === weekDayOrder,
                       );
 
                       return (

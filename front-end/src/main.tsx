@@ -28,5 +28,5 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         </WeeksContextProvider>
       </HashRouter>
     </QueryClientProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

@@ -11,12 +11,12 @@ import { WeekItemViewDaysTabs } from "./WeekItemViewDaysTabs";
 export const WeekItemViewDays = () => {
   const data = useContextSelector(
     WeekItemViewContext,
-    ({ dataQuery }) => dataQuery.data
+    ({ dataQuery }) => dataQuery.data,
   );
 
   const isLoading = useContextSelector(
     WeekItemViewContext,
-    ({ dataQuery }) => dataQuery.isLoading
+    ({ dataQuery }) => dataQuery.isLoading,
   );
 
   return (

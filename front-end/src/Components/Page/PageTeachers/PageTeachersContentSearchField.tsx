@@ -9,12 +9,12 @@ import { PageTeachersContext } from "./PageTeachersContext";
 export const PageTeachersContentSearchField = () => {
   const searchQuery = useContextSelector(
     PageTeachersContext,
-    ({ searchQuery }) => searchQuery
+    ({ searchQuery }) => searchQuery,
   );
 
   const setSearchQuery = useContextSelector(
     PageTeachersContext,
-    ({ setSearchQuery }) => setSearchQuery
+    ({ setSearchQuery }) => setSearchQuery,
   );
 
   return (
