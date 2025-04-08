@@ -22,9 +22,7 @@ export const subjectSlugTable = sqliteTable("subjects_slugs", {
 
   slug: text("slug"),
 
-  idSubjectFk: int("id_subject_fk")
-    .notNull()
-    .references(() => subjectTable.id),
+  idSubjectFk: int("id_subject_fk").notNull(),
 });
 
 export const subjectSlugTableRelations = relations(
@@ -51,9 +49,7 @@ export const teacherTable = sqliteTable("teachers", {
 export const teacherSlugTable = sqliteTable("teachers_slugs", {
   id: int().primaryKey({ autoIncrement: true }),
   slug: text("slug"),
-  idTeacherFk: int("id_teacher_fk")
-    .notNull()
-    .references(() => teacherTable.id),
+  idTeacherFk: int("id_teacher_fk").notNull(),
 });
 
 export const teacherTableRelations = relations(teacherTable, ({ many }) => ({
@@ -79,9 +75,7 @@ export const studentClassTable = sqliteTable("students_classes", {
 
   period: text("period").notNull(),
 
-  idCourseFk: int("id_course_fk")
-    .notNull()
-    .references(() => courseTable.id),
+  idCourseFk: int("id_course_fk").notNull(),
 });
 
 export const studentClassSlugTable = sqliteTable("students_classes_slugs", {
@@ -89,9 +83,7 @@ export const studentClassSlugTable = sqliteTable("students_classes_slugs", {
 
   slug: text("period").notNull(),
 
-  idStudentClassFk: int("id_student_class_fk")
-    .notNull()
-    .references(() => studentClassTable.id),
+  idStudentClassFk: int("id_student_class_fk").notNull(),
 });
 
 export const studentClassTableRelations = relations(
@@ -121,15 +113,9 @@ export const lessonScheduleTable = sqliteTable("lesson_schedule", {
   startsAt: text("starts_at").notNull(),
   endsAt: text("ends_at").notNull(),
 
-  idTeacherFk: int("id_teacher_fk")
-    .notNull()
-    .references(() => teacherTable.id),
-  idStudentClassFk: int("id_student_class_fk")
-    .notNull()
-    .references(() => studentClassTable.id),
-  idSubjectFk: int("id_subject_fk")
-    .notNull()
-    .references(() => subjectTable.id),
+  idTeacherFk: int("id_teacher_fk").notNull(),
+  idStudentClassFk: int("id_student_class_fk").notNull(),
+  idSubjectFk: int("id_subject_fk").notNull(),
 });
 
 export const lessonScheduleTableRelations = relations(

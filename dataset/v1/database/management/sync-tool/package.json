@@ -3,15 +3,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "sync": "bun run src/main.ts",
-    "reset": "rm -f ../../db/dataset-v1.sqlite && bun run db:migrate",
-    "reset-and-sync": "bun run reset && bun run sync",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate"
+    "sync": "bun run src/main.ts"
   },
   "devDependencies": {
-    "@types/bun": "^1.2.8",
-    "drizzle-kit": "^0.30.6"
+    "@types/bun": "^1.2.8"
   },
   "peerDependencies": {
     "typescript": "^5"
