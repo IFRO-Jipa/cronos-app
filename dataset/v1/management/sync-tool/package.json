@@ -12,8 +12,9 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@cronos-app/extractor-google-docs-v1": "../../extractors/extractor-google-docs-v1/",
-    "@libsql/client": "^0.15.2",
-    "drizzle-orm": "^0.41.0"
+    "@cronos-app/extractor-google-docs-v1": "../../../../extractors/extractor-google-docs-v1/",
+    "reflect-metadata": "^0.2.2",
+    "sqlite3": "^5.1.7",
+    "typeorm": "^0.3.22"
   }
 }

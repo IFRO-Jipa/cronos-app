@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 import {
   downloadGoogleDocsSpreadsheet,
   GoogleDocsSpreadsheetExportFormat,
@@ -6,7 +8,9 @@ import {
   extractLessonsSchedules,
   sortLessonsSchedules,
 } from "@cronos-app/extractor-google-docs-v1/src/extractor/extract-lessons-schedules";
-import { syncLessonsSchedules } from "./sync-lessons-schedules";
+import { getAppDataSource } from "./db/data-sources/app.datasource";
+import { DatabaseContext } from "./db/db-context";
+import { syncLessonsSchedules } from "./service/sync/database/sync-lessons-schedules";
 
 const OPTIONS = {
   REFERENCE_YEAR: 2025,
@@ -14,6 +18,9 @@ const OPTIONS = {
 };
 
 async function main() {
+  const dataSource = await getAppDataSource();
+  const dbContext = new DatabaseContext(dataSource);
+
   const arrayBuffer = await downloadGoogleDocsSpreadsheet(
     OPTIONS.SPREADSHEET_ID,
     GoogleDocsSpreadsheetExportFormat.XLSX
@@ -23,7 +30,11 @@ async function main() {
     sortLessonsSchedules(extractLessonsSchedules(arrayBuffer))
   );
 
-  await syncLessonsSchedules(OPTIONS.REFERENCE_YEAR, lessonsSchedules);
+  await syncLessonsSchedules(
+    dbContext,
+    OPTIONS.REFERENCE_YEAR,
+    lessonsSchedules
+  );
 }
 
 main();
