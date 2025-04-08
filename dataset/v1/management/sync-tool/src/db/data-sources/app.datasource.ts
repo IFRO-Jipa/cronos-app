@@ -9,7 +9,7 @@ export const getAppDataSource = async () => {
     database: PATH_REPO_DATASET_V1_DATABASE_DB_SQLITE,
 
     synchronize: false,
-    logging: true,
+    logging: false,
 
     entities: [...entities],
     subscribers: [],
