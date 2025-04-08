@@ -1,0 +1,12 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "database": "${workspaceFolder:cronos-app}/dataset/v1/db/dataset-v1.sqlite",
+      "name": "dataset-v1-sqlite",
+      "group": "dataset-v1-sqlite"
+    }
+  ],
+  "sqltools.useNodeRuntime": true
+}
