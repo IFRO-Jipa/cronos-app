@@ -1,7 +1,8 @@
 {
   "name": "@cronos-app/dataset-v1.database.management.migrations",
   "scripts": {
-    "dbmate": "dbmate"
+    "dbmate": "dbmate",
+    "dbmate:up": "dbmate up"
   },
   "dependencies": {
     "dbmate": "^2.26.0"
