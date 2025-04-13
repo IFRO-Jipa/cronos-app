@@ -1,11 +1,11 @@
-import { DataSource } from "typeorm";
 import { entities } from "@cronos-app/db-v1-connect";
-import { PATH_REPO_DATASET_V1_DATABASE_DB_SQLITE } from "./paths";
+import { join } from "node:path";
+import { DataSource } from "typeorm";
 
 export const getAppDataSource = async () => {
   const dataSource = new DataSource({
     type: "sqlite",
-    database: PATH_REPO_DATASET_V1_DATABASE_DB_SQLITE,
+    database: join(__dirname, "../../../db/v1/database.sqlite3"),
     synchronize: false,
     logging: false,
     entities: [...entities],

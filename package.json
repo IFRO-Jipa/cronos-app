@@ -4,6 +4,7 @@
     "./packages/extractors/extractor-google-docs-v1/",
     "./packages/db-v1-connect/",
     "./packages/db-v1-migrations/",
-    "./packages/db-v1-sync-tool/"
+    "./packages/db-v1-sync-tool/",
+    "./packages/playground/"
   ]
 }

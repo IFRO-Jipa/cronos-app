@@ -1,5 +1,5 @@
-import type { SubjectEntity } from "../../../../db-v1-connect/src";
-import { DatabaseContext } from "../../../../db-v1-connect/src";
+import type { SubjectEntity } from "@cronos-app/db-v1-connect";
+import { DatabaseContext } from "@cronos-app/db-v1-connect";
 
 async function getSubjectById(
   dbContext: DatabaseContext,

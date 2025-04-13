@@ -1,5 +1,5 @@
-import type { CourseEntity } from "../../../../db-v1-connect/src";
-import { DatabaseContext } from "../../../../db-v1-connect/src";
+import type { CourseEntity } from "@cronos-app/db-v1-connect";
+import { DatabaseContext } from "@cronos-app/db-v1-connect";
 
 export async function findCourseByIdOrFail(
   dbContext: DatabaseContext,

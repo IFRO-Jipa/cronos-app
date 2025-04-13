@@ -1,5 +1,5 @@
-import type { DatabaseContext } from "../../../../../db-v1-connect/src";
-import { type IExtractedLessonSchedule } from "../../../../../extractors/extractor-google-docs-v1/src";
+import type { DatabaseContext } from "@cronos-app/db-v1-connect";
+import { type IExtractedLessonSchedule } from "@cronos-app/extractor-google-docs-v1";
 import { findOrCreateLessonSchedule } from "../../database/lesson-schedule.service";
 import { findOrCreateStudentClassBySlug } from "../../database/student-class.service";
 import { findOrCreateSubjectBySlug } from "../../database/subject.service";

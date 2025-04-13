@@ -1,12 +1,10 @@
-import { DatabaseContext } from "../../db-v1-connect/src";
+import { DatabaseContext } from "@cronos-app/db-v1-connect";
 import {
   downloadGoogleDocsSpreadsheet,
-  GoogleDocsSpreadsheetExportFormat,
-} from "../../extractors/extractor-google-docs-v1/src";
-import {
   extractLessonsSchedules,
+  GoogleDocsSpreadsheetExportFormat,
   sortLessonsSchedules,
-} from "../../extractors/extractor-google-docs-v1/src/extractor/extract-lessons-schedules";
+} from "@cronos-app/extractor-google-docs-v1";
 import { getAppDataSource } from "./app.datasource";
 import { syncLessonsSchedules } from "./service/sync/database/sync-lessons-schedules";
 

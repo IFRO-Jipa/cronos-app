@@ -1,0 +1,9 @@
+{
+  "name": "@cronos-app/playground",
+  "dependencies": {
+    "@cronos-app/db-v1-connect": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}
