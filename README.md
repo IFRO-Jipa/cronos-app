@@ -17,7 +17,7 @@ O Cronos App foi criado no intuito de tornar simples a visualização de horári
 
 Sem anúncios, leve e com salvamento offline.
 
-Este app foi criado como uma continuação moderna e melhorada do antigo [Horários IFRO Jipa](https://github.com/horarios-app) - aplicação web criada pelo alumni [Gabriel R. Antunes](https://github.com/guesant).
+Este app é uma continuação moderna e melhorada do antigo [Horários IFRO Jipa](https://github.com/horarios-app) - aplicação web criada pelo alumni [Gabriel R. Antunes](https://github.com/guesant).
 
 ## Fonte de Dados
 
