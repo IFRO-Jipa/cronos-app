@@ -11,8 +11,8 @@ export const useNow = () => {
   useEffect(() => {
     const remainingSecondsToNextMinute = 61 - getNow().getSeconds();
 
-    let timeoutId: number | null = null;
-    let intervalId: number | null = null;
+    let timeoutId: NodeJS.Timeout | null = null;
+    let intervalId: NodeJS.Timeout | null = null;
 
     timeoutId = setTimeout(() => {
       syncNow();
