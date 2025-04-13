@@ -11,17 +11,34 @@
 
 Visualize os horários de aula do campus de forma simples e interativa ✨
 
+## Sobre
+
+O Cronos App foi criado no intuito de tornar simples a visualização de horários de aula no IFRO Campus Ji-Paraná. 
+
+Sem anúncios, leve e com salvamento offline.
+
+Este app foi criado como uma continuação moderna e melhorada do antigo [Horários IFRO Jipa](https://github.com/horarios-app) - aplicação web criada pelo alumni [Gabriel R. Antunes](https://github.com/guesant).
+
+## Fonte de Dados
+
+Atualmente, o Cronos funciona apenas como um visualizador de horários que estão disponíveis em uma planilha pública no Google Docs.
+
 - <https://docs.google.com/spreadsheets/d/1pZ5Ok7YUO9OEatllR7s1UfOaYJF03ULtRcDcd-YHnIA/>
 
 - <https://docs.google.com/presentation/d/e/2PACX-1vQP-b0NoFv9j2d-T2UamzdqlF7uoxOfDaH5CNU68aJCB7E8tePY4F8ABeYkZVotWPr1Z4UOG7spk9tL/pub?start=false&loop=true&delayms=3000#slide=id.g1dcb910429c_0_0>
 
 ## Sistemas
 
+### db/v1
+
+Banco de dados SQLITE3 que armazena todas as informações extraídas.
+
 ### front-end
 
 Aplicação front-end Web feita com React e MUI.
 
 Diretório: [./front-end](./front-end/)
+
 
 ## Licença
 
