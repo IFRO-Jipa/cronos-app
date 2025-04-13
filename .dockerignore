@@ -1,0 +1,10 @@
+dist
+.output
+node_modules
+.env
+Dockerfile
+.dockerignore
+.github
+.git
+.vscode
+db

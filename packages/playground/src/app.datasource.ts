@@ -6,9 +6,10 @@ export const getAppDataSource = async () => {
   const dataSource = new DataSource({
     type: "sqlite",
     database: join(__dirname, "../../../db/v1/database.sqlite3"),
+    entities: [...entities],
+
     synchronize: false,
     logging: false,
-    entities: [...entities],
   });
 
   await dataSource.initialize();
