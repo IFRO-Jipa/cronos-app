@@ -1,0 +1,9 @@
+{
+  "workspaces": [
+    "./front-end",
+    "./packages/extractors/extractor-google-docs-v1/",
+    "./packages/db-v1-connect/",
+    "./packages/db-v1-migrations/",
+    "./packages/db-v1-sync-tool/"
+  ]
+}

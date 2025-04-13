@@ -1,7 +1,7 @@
 {
-  "name": "horarios-ifro-app-v3",
+  "name": "@cronos-app/front-end",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0-beta-0",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -1,8 +1,0 @@
-{
-  "workspaces": [
-    "./extractors/extractor-google-docs-v1/",
-    "./db-v1-connect/",
-    "./db-v1-migrations/",
-    "./db-v1-sync-tool/"
-  ]
-}
