@@ -1,0 +1,21 @@
+{
+  "name": "@cronos-app/dataset-v1.util",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "sync": "bun run src/main.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.8"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@cronos-app/db-v1-connect": "workspace:*",
+    "@cronos-app/extractor-google-docs-v1": "workspace:*",
+    "reflect-metadata": "^0.2.2",
+    "sqlite3": "^5.1.7",
+    "typeorm": "^0.3.22"
+  }
+}

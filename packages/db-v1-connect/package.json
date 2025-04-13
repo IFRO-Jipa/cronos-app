@@ -1,0 +1,14 @@
+{
+  "name": "@cronos-app/db-v1-connect",
+  "type": "module",
+  "module": "src/index.ts",
+  "typings": "src/index.ts",
+  "private": true,
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.22"
+  }
+}
