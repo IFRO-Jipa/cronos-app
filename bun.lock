@@ -68,7 +68,7 @@
         "typescript": "^5",
       },
     },
-    "packages/extractors/extractor-google-docs-v1": {
+    "packages/extractor-google-docs-v1": {
       "name": "@cronos-app/extractor-google-docs-v1",
       "dependencies": {
         "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
@@ -137,7 +137,7 @@
 
     "@cronos-app/db-v1-migrations": ["@cronos-app/db-v1-migrations@workspace:packages/db-v1-migrations"],
 
-    "@cronos-app/extractor-google-docs-v1": ["@cronos-app/extractor-google-docs-v1@workspace:packages/extractors/extractor-google-docs-v1"],
+    "@cronos-app/extractor-google-docs-v1": ["@cronos-app/extractor-google-docs-v1@workspace:packages/extractor-google-docs-v1"],
 
     "@cronos-app/front-end": ["@cronos-app/front-end@workspace:front-end"],
 
