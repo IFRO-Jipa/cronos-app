@@ -1,0 +1,14 @@
+name: "Data/v1: sync and pull lessons schedules"
+
+on:
+  schedule:
+    - cron: "5 18,20 * * 4,5,6"
+
+jobs:
+  sync:
+    runs-on: ubuntu
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker info
+      - run: make sync
+      - run: git status
