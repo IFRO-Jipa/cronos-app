@@ -1,8 +1,8 @@
 -- migrate:up
-
 CREATE TABLE `courses` (
 	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
-	`full_name` text
+	`full_name` text,
+	`emoji` text
 );
 
 CREATE TABLE `subjects` (
@@ -58,16 +58,18 @@ CREATE TABLE `lessons_schedules` (
 );
 
 -- migrate:down
-
 DROP TABLE `lessons_schedules`;
 
 DROP TABLE `students_classes`;
+
 DROP TABLE `students_classes_slugs`;
 
 DROP TABLE `teachers_slugs`;
+
 DROP TABLE `teachers`;
 
 DROP TABLE `subjects_slugs`;
+
 DROP TABLE `subjects`;
 
 DROP TABLE `courses`;
