@@ -8,5 +8,10 @@
     "typescript": "^5"
   },
   "type": "module",
-  "types": "src/index.ts"
+  "types": "src/index.ts",
+  "dependencies": {
+    "localforage": "^1.10.0",
+    "p-mutex": "^0.1.0",
+    "sql.js": "^1.13.0"
+  }
 }

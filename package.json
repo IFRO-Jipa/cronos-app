@@ -6,6 +6,7 @@
     "./front-end",
     "./packages/data-v1-client/",
     "./packages/extractor-google-docs-v1/",
-    "./packages/playground/"
+    "./packages/playground/",
+    "./packages/playground-react/"
   ]
 }
