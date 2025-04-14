@@ -5,13 +5,15 @@
     "@types/bun": "latest"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^5",
+    "typeorm": "^0.3.22"
   },
   "type": "module",
   "types": "src/index.ts",
   "dependencies": {
     "localforage": "^1.10.0",
     "p-mutex": "^0.1.0",
-    "sql.js": "^1.13.0"
+    "sql.js": "^1.13.0",
+    "typeorm": "^0.3.22"
   }
 }

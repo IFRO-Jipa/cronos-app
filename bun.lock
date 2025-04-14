@@ -9,6 +9,7 @@
         "typeorm": "^0.3.22",
       },
       "peerDependencies": {
+        "typeorm": "^0.3.22",
         "typescript": "^5",
       },
     },
@@ -31,6 +32,7 @@
         "@types/bun": "^1.2.8",
       },
       "peerDependencies": {
+        "typeorm": "^0.3.22",
         "typescript": "^5",
       },
     },
@@ -74,11 +76,13 @@
         "localforage": "^1.10.0",
         "p-mutex": "^0.1.0",
         "sql.js": "^1.13.0",
+        "typeorm": "^0.3.22",
       },
       "devDependencies": {
         "@types/bun": "latest",
       },
       "peerDependencies": {
+        "typeorm": "^0.3.22",
         "typescript": "^5",
       },
     },
@@ -107,6 +111,8 @@
       "name": "playground-react",
       "version": "0.0.0",
       "dependencies": {
+        "@cronos-app/data-v1-client": "workspace:*",
+        "@tanstack/react-query": "^5.74.3",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
       },
@@ -1096,6 +1102,8 @@
 
     "p-limit/yocto-queue": ["yocto-queue@0.1.0", "", {}, "sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q=="],
 
+    "playground-react/@tanstack/react-query": ["@tanstack/react-query@5.74.3", "", { "dependencies": { "@tanstack/query-core": "5.74.3" }, "peerDependencies": { "react": "^18 || ^19" } }, "sha512-QrycUn0wxjVPzITvQvOxFRdhlAwIoOQSuav7qWD4SWCoKCdLbyRZ2vji2GuBq/glaxbF4wBx3fqcYRDOt8KDTA=="],
+
     "playground-react/typescript": ["typescript@5.7.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw=="],
 
     "rc/strip-json-comments": ["strip-json-comments@2.0.1", "", {}, "sha512-4gB8na07fecVVkOI6Rs4e7T6NOTki5EmL7TUduTs6bu3EdnSycntVJ4re8kgZA+wx9IueI2Y11bfbgwtzuE0KQ=="],
@@ -1119,5 +1127,7 @@
     "@typescript-eslint/typescript-estree/minimatch/brace-expansion": ["brace-expansion@2.0.1", "", { "dependencies": { "balanced-match": "^1.0.0" } }, "sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA=="],
 
     "glob/minimatch/brace-expansion": ["brace-expansion@2.0.1", "", { "dependencies": { "balanced-match": "^1.0.0" } }, "sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA=="],
+
+    "playground-react/@tanstack/react-query/@tanstack/query-core": ["@tanstack/query-core@5.74.3", "", {}, "sha512-Mqk+5o3qTuAiZML248XpNH8r2cOzl15+LTbUsZQEwvSvn1GU4VQhvqzAbil36p+MBxpr/58oBSnRzhrBevDhfg=="],
   }
 }

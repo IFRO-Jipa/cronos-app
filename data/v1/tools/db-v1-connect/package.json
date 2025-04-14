@@ -5,7 +5,8 @@
   "module": "lib/index.ts",
   "typings": "lib/index.ts",
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^5",
+    "typeorm": "^0.3.22"
   },
   "dependencies": {
     "reflect-metadata": "^0.2.2",

@@ -1,5 +1,5 @@
 import "reflect-metadata";
 
 export * from "./repositories";
-export * from "./typeorm/db-context";
+export * from "./repositories/core-repositories";
 export * from "./typeorm/entities";

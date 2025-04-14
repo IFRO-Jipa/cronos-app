@@ -1,35 +1,29 @@
-import { useState } from "react";
-import "./App.css";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import {
+  AppDatabaseService,
+  DataSourceService,
+  GetCoursesUseCase,
+} from "@cronos-app/data-v1-client";
+import {
+  DatabaseContext,
+  GetCoursesRepositoryUseCase,
+} from "@cronos-app/db-v1-connect";
+import { useQuery } from "@tanstack/react-query";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const { data } = useQuery({
+    queryKey: ["courses"],
+    queryFn: async () => {
+      const appDb = new AppDatabaseService();
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  );
+      const dataSourceService = new DataSourceService(appDb);
+      const source = await dataSourceService.createOfflineFirstDataSource();
+
+      const databaseContext = new DatabaseContext(source);
+      new GetCoursesUseCase(new GetCoursesRepositoryUseCase(databaseContext));
+    },
+  });
+
+  return <>{JSON.stringify({ data }, null, 2)}</>;
 }
 
 export default App;

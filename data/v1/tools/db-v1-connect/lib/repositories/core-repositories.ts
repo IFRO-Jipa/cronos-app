@@ -8,7 +8,7 @@ import {
   SubjectSlugEntity,
   TeacherEntity,
   TeacherSlugEntity,
-} from "./entities";
+} from "../typeorm/entities";
 
 export class DatabaseContext {
   constructor(private source: DataSource | EntityManager) {}

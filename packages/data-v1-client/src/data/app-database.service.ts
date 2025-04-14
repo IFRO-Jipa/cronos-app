@@ -12,7 +12,7 @@ export async function fetchMainDatabase() {
   return arrayBuffer;
 }
 
-export class AppDatabaseController {
+export class AppDatabaseService {
   #storageToken = "cronos-app-database";
 
   #syncMutex = new Mutex();
@@ -77,7 +77,7 @@ export class AppDatabaseController {
   async checkUpdates() {
     return {
       hasUpdates: false,
-      
+
       checkedAt: new Date(),
 
       localDatabaseDate: new Date(),
