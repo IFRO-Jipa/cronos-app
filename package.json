@@ -4,6 +4,7 @@
     "./data/v1/tools/db-v1-migrations/",
     "./data/v1/tools/db-v1-pull-lessons-schedules/",
     "./front-end",
+    "./packages/data-v1-client/",
     "./packages/extractor-google-docs-v1/",
     "./packages/playground/"
   ]

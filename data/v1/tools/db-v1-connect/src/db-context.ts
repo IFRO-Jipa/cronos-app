@@ -13,7 +13,7 @@ import {
 export class DatabaseContext {
   constructor(private source: DataSource | EntityManager) {}
 
-  get couseRepository() {
+  get courseRepository() {
     return this.source.getRepository(CourseEntity);
   }
 
