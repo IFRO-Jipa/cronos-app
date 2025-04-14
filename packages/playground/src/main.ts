@@ -5,22 +5,25 @@ const dataSource = await getAppDataSource();
 const databaseContext = new DatabaseContext(dataSource);
 
 async function getWeeks() {
-  type IRawWeek = { starts_at: string; ends_at: string };
+  type IRawWeek = {
+    starts_at: string;
+    ends_at: string;
+  };
 
   const weeks = await dataSource.query<IRawWeek[]>(
-    `
-      SELECT 
+    `SELECT 
         DISTINCT date(lessons_schedules.date, "-6 day", "weekday 1") as starts_at,
         date(lessons_schedules.date, "weekday 6") as ends_at
-      FROM lessons_schedules;
-    `
+      FROM lessons_schedules;`
   );
 
   return weeks;
 }
 
 async function getStudentClasses() {
-  const studentClasses = databaseContext.studentClassRepository.find();
+  const studentClasses = databaseContext.studentClassRepository.find({
+    relations: { course: true },
+  });
   return studentClasses;
 }
 

@@ -1,5 +1,5 @@
-import type { TeacherEntity } from "../../../../db-v1-connect/src";
-import { DatabaseContext } from "../../../../db-v1-connect/src";
+import type { TeacherEntity } from "@cronos-app/db-v1-connect";
+import { DatabaseContext } from "@cronos-app/db-v1-connect";
 
 async function findTeacherByIdOrFail(
   dbContext: DatabaseContext,

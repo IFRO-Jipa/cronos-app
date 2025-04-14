@@ -5,9 +5,8 @@ import { DataSource } from "typeorm";
 export const getAppDataSource = async () => {
   const dataSource = new DataSource({
     type: "sqlite",
-    database: join(__dirname, "../../../db/v1/database.sqlite3"),
+    database: join(__dirname, "../../../data/v1/db/database.sqlite3"),
     entities: [...entities],
-
     synchronize: false,
     logging: false,
   });
