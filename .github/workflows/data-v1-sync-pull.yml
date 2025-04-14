@@ -1,6 +1,7 @@
 name: "Data/v1: sync and pull lessons schedules"
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "5 18,20 * * 4,5,6"
 
