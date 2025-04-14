@@ -1,4 +1,4 @@
-import type { DatabaseContext } from "../../db-context";
+import type { DatabaseContext } from "../../typeorm/db-context";
 
 export class GetCoursesRepositoryUseCase {
   constructor(readonly databaseContext: DatabaseContext) {}

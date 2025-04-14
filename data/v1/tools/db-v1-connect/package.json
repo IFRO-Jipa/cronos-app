@@ -1,9 +1,9 @@
 {
   "name": "@cronos-app/db-v1-connect",
   "type": "module",
-  "module": "src/index.ts",
-  "typings": "src/index.ts",
   "private": true,
+  "module": "lib/index.ts",
+  "typings": "lib/index.ts",
   "peerDependencies": {
     "typescript": "^5"
   },
