@@ -2,6 +2,38 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {},
+    "data/v1/tools/connect": {
+      "name": "@cronos-app/db-v1-connect",
+      "dependencies": {
+        "reflect-metadata": "^0.2.2",
+        "typeorm": "^0.3.22",
+      },
+      "peerDependencies": {
+        "typescript": "^5",
+      },
+    },
+    "data/v1/tools/migrations": {
+      "name": "@cronos-app/db-v1-migrations",
+      "dependencies": {
+        "dbmate": "^2.26.0",
+      },
+    },
+    "data/v1/tools/pull-lessons-schedules": {
+      "name": "@cronos-app/dataset-v1.util",
+      "dependencies": {
+        "@cronos-app/db-v1-connect": "workspace:*",
+        "@cronos-app/extractor-google-docs-v1": "workspace:*",
+        "reflect-metadata": "^0.2.2",
+        "sqlite3": "^5.1.7",
+        "typeorm": "^0.3.22",
+      },
+      "devDependencies": {
+        "@types/bun": "^1.2.8",
+      },
+      "peerDependencies": {
+        "typescript": "^5",
+      },
+    },
     "front-end": {
       "name": "@cronos-app/front-end",
       "version": "1.0.0-beta-0",
@@ -34,38 +66,6 @@
         "prettier": "^3.5.3",
         "typescript": "^5.8.3",
         "vite": "^6.2.6",
-      },
-    },
-    "packages/db-v1-connect": {
-      "name": "@cronos-app/db-v1-connect",
-      "dependencies": {
-        "reflect-metadata": "^0.2.2",
-        "typeorm": "^0.3.22",
-      },
-      "peerDependencies": {
-        "typescript": "^5",
-      },
-    },
-    "packages/db-v1-migrations": {
-      "name": "@cronos-app/db-v1-migrations",
-      "dependencies": {
-        "dbmate": "^2.26.0",
-      },
-    },
-    "packages/db-v1-sync-tool": {
-      "name": "@cronos-app/dataset-v1.util",
-      "dependencies": {
-        "@cronos-app/db-v1-connect": "workspace:*",
-        "@cronos-app/extractor-google-docs-v1": "workspace:*",
-        "reflect-metadata": "^0.2.2",
-        "sqlite3": "^5.1.7",
-        "typeorm": "^0.3.22",
-      },
-      "devDependencies": {
-        "@types/bun": "^1.2.8",
-      },
-      "peerDependencies": {
-        "typescript": "^5",
       },
     },
     "packages/extractor-google-docs-v1": {
@@ -131,11 +131,11 @@
 
     "@babel/types": ["@babel/types@7.27.0", "", { "dependencies": { "@babel/helper-string-parser": "^7.25.9", "@babel/helper-validator-identifier": "^7.25.9" } }, "sha512-H45s8fVLYjbhFH62dIJ3WtmJ6RSPt/3DRO0ZcT2SUiYiQyz3BLVb9ADEnLl91m74aQPS3AzzeajZHYOalWe3bg=="],
 
-    "@cronos-app/dataset-v1.util": ["@cronos-app/dataset-v1.util@workspace:packages/db-v1-sync-tool"],
+    "@cronos-app/dataset-v1.util": ["@cronos-app/dataset-v1.util@workspace:data/v1/tools/pull-lessons-schedules"],
 
-    "@cronos-app/db-v1-connect": ["@cronos-app/db-v1-connect@workspace:packages/db-v1-connect"],
+    "@cronos-app/db-v1-connect": ["@cronos-app/db-v1-connect@workspace:data/v1/tools/connect"],
 
-    "@cronos-app/db-v1-migrations": ["@cronos-app/db-v1-migrations@workspace:packages/db-v1-migrations"],
+    "@cronos-app/db-v1-migrations": ["@cronos-app/db-v1-migrations@workspace:data/v1/tools/migrations"],
 
     "@cronos-app/extractor-google-docs-v1": ["@cronos-app/extractor-google-docs-v1@workspace:packages/extractor-google-docs-v1"],
 
