@@ -3,7 +3,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "sync": "bun run src/main.ts"
+    "sync": "DB_FILE_NAME='../../db/database.sqlite3' bun run src/main.ts"
   },
   "devDependencies": {
     "@types/bun": "^1.2.8"

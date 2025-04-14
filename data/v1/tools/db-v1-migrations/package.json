@@ -1,8 +1,8 @@
 {
   "name": "@cronos-app/db-v1-migrations",
   "scripts": {
-    "dbmate": "dbmate",
-    "dbmate:up": "dbmate up"
+    "dbmate": "dbmate --no-dump-schema -d ./src -u 'sqlite:../../db/database.sqlite3'",
+    "dbmate:up": "bun run dbmate up"
   },
   "dependencies": {
     "dbmate": "^2.26.0"
