@@ -1,5 +1,5 @@
 {
-  "name": "@cronos-app/dataset-v1.util",
+  "name": "@cronos-app/db-v1-pull-lessons-schedules",
   "type": "module",
   "private": true,
   "scripts": {

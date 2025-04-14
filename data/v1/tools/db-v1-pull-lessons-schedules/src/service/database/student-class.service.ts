@@ -1,5 +1,5 @@
-import type { StudentClassEntity } from "@cronos-app/db-v1-connect";
-import { DatabaseContext } from "@cronos-app/db-v1-connect";
+import type { StudentClassEntity } from "../../../../db-connect/src";
+import { DatabaseContext } from "../../../../db-connect/src";
 import { findOrCreateCourseByName } from "./course.service";
 
 type StudentClassSlugIdentifierSet = {

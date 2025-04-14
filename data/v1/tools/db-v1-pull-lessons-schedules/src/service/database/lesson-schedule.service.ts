@@ -1,7 +1,7 @@
 import type {
   DatabaseContext,
   LessonScheduleEntity,
-} from "@cronos-app/db-v1-connect";
+} from "../../../../db-connect/src";
 
 type IFindOrCreateLessonScheduleDto = {
   date: LessonScheduleEntity["date"];

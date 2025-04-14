@@ -1,8 +1,8 @@
 {
   "workspaces": [
-    "./data/v1/tools/connect/",
-    "./data/v1/tools/migrations/",
-    "./data/v1/tools/pull-lessons-schedules/",
+    "./data/v1/tools/db-v1-connect/",
+    "./data/v1/tools/db-v1-migrations/",
+    "./data/v1/tools/db-v1-pull-lessons-schedules/",
     "./front-end",
     "./packages/extractor-google-docs-v1/",
     "./packages/playground/"

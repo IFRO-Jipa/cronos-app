@@ -2,7 +2,6 @@ FROM oven/bun:1 AS base
 ENV BUN_INSTALL_CACHE_DIR="/bun/install/cache"
 
 FROM base AS source
-
 COPY . /var/cronos-app/.source/
 WORKDIR /var/cronos-app/.source/
 

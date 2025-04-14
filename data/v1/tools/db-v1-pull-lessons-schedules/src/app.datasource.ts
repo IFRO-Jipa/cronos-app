@@ -1,5 +1,5 @@
-import { DataSource } from "typeorm";
 import { entities } from "@cronos-app/db-v1-connect";
+import { DataSource } from "typeorm";
 import { PATH_REPO_DATASET_V1_DATABASE_DB_SQLITE } from "./paths";
 
 export const getAppDataSource = async () => {
