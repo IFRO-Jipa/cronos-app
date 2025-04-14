@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: docker info
-      - run: make sync
+      - uses: oven-sh/setup-bun@v2
+      - run: make sync;
       - run: git status
