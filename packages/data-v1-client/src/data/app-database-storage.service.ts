@@ -1,5 +1,3 @@
-import localforage from "localforage";
-
 function getGitHubStaticFile(repository: string, branch: string, path: string) {
   const GH_STATIC = `https://raw.githubusercontent.com`;
   return `${GH_STATIC}/${repository}/refs/heads/${branch}/${path}`;
@@ -15,18 +13,26 @@ const URL_MAIN_DB = getGitHubStaticFile(GH_REPO, GH_BRANCH, REPO_SQLITE_PATH);
 export async function fetchMainDatabase() {
   const res = await fetch(URL_MAIN_DB);
   const arrayBuffer = await res.arrayBuffer();
-  return arrayBuffer;
+  return new Uint8Array(arrayBuffer);
 }
 
 export class AppDatabaseStorageService {
   #storageToken = "cronos-app-database";
 
   private async getCurrentOfflineData() {
+    const { default: localforage } = await import("localforage");
+
     const currentDatabaseData = await localforage.getItem<ArrayBuffer>(
       this.#storageToken
     );
 
-    return currentDatabaseData;
+    if (currentDatabaseData) {
+      try {
+        return new Uint8Array(currentDatabaseData);
+      } catch (e) {}
+    }
+
+    return null;
   }
 
   async getOfflineFirstData() {
@@ -35,16 +41,22 @@ export class AppDatabaseStorageService {
     if (currentData) {
       return {
         source: "local",
-        data: currentData,
+        data: {
+          uint8array: currentData,
+        },
       };
     }
 
     const remoteData = await fetchMainDatabase();
+
+    const { default: localforage } = await import("localforage");
     await localforage.setItem(this.#storageToken, remoteData);
 
     return {
       source: "remote",
-      data: new Uint8Array(remoteData),
+      data: {
+        uint8array: remoteData,
+      },
     };
   }
 }

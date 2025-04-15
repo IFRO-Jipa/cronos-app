@@ -21,8 +21,10 @@ export const createDatabaseConnectionBrowser = async (
   const dataSource = new DataSource({
     database,
     type: "sqljs",
+
     driver: initSqlJs,
     sqlJsConfig: sqlJsConfig,
+
     entities: [...entities],
     synchronize: false,
     logging: false,

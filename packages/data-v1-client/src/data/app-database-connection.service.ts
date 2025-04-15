@@ -5,10 +5,11 @@ export class AppDatabaseConnectionService {
   constructor(readonly appDatabaseService: AppDatabaseStorageService) {}
 
   async createOfflineFirstDatabaseConnection() {
-    const database = await this.appDatabaseService.getOfflineFirstData();
-    const data = new Uint8Array(database.data);
+    const dataResponse = await this.appDatabaseService.getOfflineFirstData();
 
-    const databaseConnection = await createDatabaseConnectionBrowser(data);
+    const databaseConnection = await createDatabaseConnectionBrowser(
+      dataResponse.data.uint8array
+    );
 
     return databaseConnection;
   }

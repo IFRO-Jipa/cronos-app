@@ -14,6 +14,9 @@ export class CourseEntity {
 
   @Column({ name: "full_name", type: "text", nullable: true })
   fullName!: string | null;
+
+  @Column({ name: "emoji", type: "text", nullable: true })
+  emoji!: string | null;
 }
 
 @Entity("subjects")
