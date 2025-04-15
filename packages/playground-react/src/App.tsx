@@ -1,29 +1,45 @@
 import {
-  AppDatabaseService,
-  DataSourceService,
+  AppDatabaseConnectionService,
+  AppDatabaseStorageService,
   GetCoursesUseCase,
 } from "@cronos-app/data-v1-client";
-import {
-  DatabaseContext,
-  GetCoursesRepositoryUseCase,
-} from "@cronos-app/db-v1-connect";
+import { GetCoursesDaoQuery } from "@cronos-app/db-v1-connect";
 import { useQuery } from "@tanstack/react-query";
 
 function App() {
   const { data } = useQuery({
     queryKey: ["courses"],
+    retry: false,
     queryFn: async () => {
-      const appDb = new AppDatabaseService();
+      const appDb = new AppDatabaseStorageService();
 
-      const dataSourceService = new DataSourceService(appDb);
-      const source = await dataSourceService.createOfflineFirstDataSource();
+      const dataSourceService = new AppDatabaseConnectionService(appDb);
+      const conn =
+        await dataSourceService.createOfflineFirstDatabaseConnection();
 
-      const databaseContext = new DatabaseContext(source);
-      new GetCoursesUseCase(new GetCoursesRepositoryUseCase(databaseContext));
+      const getCoursesUseCase = new GetCoursesUseCase(
+        new GetCoursesDaoQuery(conn)
+      );
+      return getCoursesUseCase.action();
     },
   });
 
-  return <>{JSON.stringify({ data }, null, 2)}</>;
+  return (
+    <>
+      {data && (
+        <section>
+          <h1>Cursos</h1>
+          <ul>
+            {data.map((curso) => (
+              <li key={curso.id}>
+                <p>{curso.fullName}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </>
+  );
 }
 
 export default App;

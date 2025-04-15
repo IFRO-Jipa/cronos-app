@@ -1,5 +1,5 @@
 import "reflect-metadata";
 
-export * from "./repositories";
-export * from "./repositories/core-repositories";
-export * from "./typeorm/entities";
+export * from "./dao";
+export * from "./domain";
+export * from "./infrastructure";

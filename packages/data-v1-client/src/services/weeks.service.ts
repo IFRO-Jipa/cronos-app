@@ -1,9 +1,9 @@
-import type { GetWeeksRepositoryUseCase } from "@cronos-app/db-v1-connect";
+import type { GetWeeksDaoQuery } from "@cronos-app/db-v1-connect";
 
 export class GetWeeksUseCase {
-  constructor(private repositoryUseCase: GetWeeksRepositoryUseCase) {}
+  constructor(private getWeeksDaoQuery: GetWeeksDaoQuery) {}
 
   async action() {
-    return this.repositoryUseCase.action();
+    return this.getWeeksDaoQuery.action();
   }
 }

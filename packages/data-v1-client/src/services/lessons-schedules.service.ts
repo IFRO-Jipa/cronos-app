@@ -1,17 +1,17 @@
 import type {
-  GetLessonsSchedulesRepositoryUseCase,
-  IGetLessonsSchedulesRepositoryUseCaseOptions,
+  GetLessonsSchedulesDaoQuery,
+  IGetLessonsSchedulesDaoQueryOptions,
 } from "@cronos-app/db-v1-connect";
 
 export type GetLessonsSchedulesUseCaseOptions =
-  IGetLessonsSchedulesRepositoryUseCaseOptions;
+  IGetLessonsSchedulesDaoQueryOptions;
 
 export class GetLessonsSchedulesUseCase {
   constructor(
-    private repositoryUseCase: GetLessonsSchedulesRepositoryUseCase
+    private getLessonsSchedulesDaoQuery: GetLessonsSchedulesDaoQuery
   ) {}
 
   async action(options: GetLessonsSchedulesUseCaseOptions) {
-    return this.repositoryUseCase.action(options);
+    return this.getLessonsSchedulesDaoQuery.action(options);
   }
 }

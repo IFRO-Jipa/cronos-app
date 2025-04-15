@@ -1,9 +1,9 @@
-import type { GetCoursesRepositoryUseCase } from "@cronos-app/db-v1-connect";
+import type { GetCoursesDaoQuery } from "@cronos-app/db-v1-connect";
 
 export class GetCoursesUseCase {
-  constructor(private repositoryUseCase: GetCoursesRepositoryUseCase) {}
+  constructor(private getCourseDaoQuery: GetCoursesDaoQuery) {}
 
   async action() {
-    return this.repositoryUseCase.action();
+    return this.getCourseDaoQuery.action();
   }
 }

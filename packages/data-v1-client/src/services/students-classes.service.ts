@@ -1,15 +1,14 @@
 import {
-  GetStudentsClassesRepositoryUseCase,
-  type GetStudentsClassesRepositoryUseCaseOptions,
+  GetStudentsClassesDaoQuery,
+  type IGetStudentsClassesDaoQueryOptions,
 } from "@cronos-app/db-v1-connect";
 
-type GetStudentsClassesUseCaseOptions =
-  GetStudentsClassesRepositoryUseCaseOptions;
+type GetStudentsClassesUseCaseOptions = IGetStudentsClassesDaoQueryOptions;
 
 export class GetStudentsClassesUseCase {
-  constructor(private repositoryUseCase: GetStudentsClassesRepositoryUseCase) {}
+  constructor(private getStudentsClassesDaoQuery: GetStudentsClassesDaoQuery) {}
 
   async action(options: GetStudentsClassesUseCaseOptions) {
-    return this.repositoryUseCase.action(options);
+    return this.getStudentsClassesDaoQuery.action(options);
   }
 }

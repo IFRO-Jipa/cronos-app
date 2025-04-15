@@ -12,7 +12,7 @@ export class CourseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ name: "full_name" })
+  @Column({ name: "full_name", type: "text", nullable: true })
   fullName!: string | null;
 }
 
@@ -21,7 +21,7 @@ export class SubjectEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ name: "full_name" })
+  @Column({ name: "full_name", type: "text", nullable: true })
   fullName!: string | null;
 
   @OneToMany(() => SubjectSlugEntity, (row) => row.subject)
@@ -33,7 +33,7 @@ export class SubjectSlugEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ name: "slug" })
+  @Column({ name: "slug", type: "text", nullable: false })
   slug!: string;
 
   @ManyToOne(() => SubjectEntity)
@@ -46,10 +46,10 @@ export class TeacherEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ name: "full_name" })
+  @Column({ name: "full_name", type: "text", nullable: true })
   fullName!: string | null;
 
-  @Column({ name: "common_name" })
+  @Column({ name: "common_name", type: "text", nullable: true })
   commonName!: string | null;
 }
 
@@ -58,7 +58,7 @@ export class TeacherSlugEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ name: "slug" })
+  @Column({ name: "slug", type: "text", nullable: false })
   slug!: string;
 
   @ManyToOne(() => TeacherEntity)
@@ -71,7 +71,7 @@ export class StudentClassEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ name: "period" })
+  @Column({ name: "period", type: "text", nullable: true })
   period!: string | null;
 
   @ManyToOne(() => CourseEntity)
@@ -84,7 +84,7 @@ export class StudentClassSlugEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ name: "period" })
+  @Column({ name: "period", type: "text", nullable: false })
   period!: string;
 
   @ManyToOne(() => StudentClassEntity)
@@ -97,13 +97,13 @@ export class LessonScheduleEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ name: "date" })
+  @Column({ name: "date", type: "text", nullable: false })
   date!: string;
 
-  @Column({ name: "starts_at" })
+  @Column({ name: "starts_at", type: "text", nullable: false })
   startsAt!: string;
 
-  @Column({ name: "ends_at" })
+  @Column({ name: "ends_at", type: "text", nullable: false })
   endsAt!: string;
 
   @ManyToOne(() => TeacherEntity)

@@ -8,9 +8,9 @@ import {
   SubjectSlugEntity,
   TeacherEntity,
   TeacherSlugEntity,
-} from "../typeorm/entities";
+} from "../entities";
 
-export class DatabaseContext {
+export class DatabaseConnectionTypeormRepositories {
   constructor(private source: DataSource | EntityManager) {}
 
   get courseRepository() {

@@ -1,15 +1,19 @@
-import type { DatabaseContext } from "@cronos-app/db-v1-connect";
+import type { IDatabaseConnectionContext } from "../infrastructure/database-connection/IDatabaseConnectionContext";
 
-export type IGetLessonsSchedulesRepositoryUseCaseOptions = {
+export type IGetLessonsSchedulesDaoQueryOptions = {
   date?: string;
   "teacher.id"?: number | string;
 };
 
-export class GetLessonsSchedulesRepositoryUseCase {
-  constructor(private databaseContext: DatabaseContext) {}
+export class GetLessonsSchedulesDaoQuery {
+  constructor(readonly databaseConnection: IDatabaseConnectionContext) {}
 
-  async action(options: IGetLessonsSchedulesRepositoryUseCaseOptions) {
-    const { lessonScheduleRepository } = this.databaseContext;
+  async action(options: IGetLessonsSchedulesDaoQueryOptions) {
+    const {
+      typeorm: {
+        repositories: { lessonScheduleRepository },
+      },
+    } = this.databaseConnection;
 
     const qb = lessonScheduleRepository.createQueryBuilder("lesson_schedule");
 
